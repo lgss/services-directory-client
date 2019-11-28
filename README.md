@@ -12,3 +12,7 @@ It's a standard client-rendered React app that consumes data from an API.
 
 1. `npm i`
 2. `npm run dev`
+
+## Config
+
+It looks for the `API_HOST` environment variable.
