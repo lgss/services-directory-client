@@ -1,20 +1,12 @@
 import React from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import IndexPage from "./pages/index"
+import MapPage from "./pages/map"
 
 const App = () =>
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route path="/" component={IndexPage} exact/>
+      <Route path="/map" component={MapPage} exact/>
+    </Router>
 
 export default App
