@@ -65,12 +65,11 @@ const Input = styled.input`
     }
 `
 
-const SearchIcon = styled.img``
-
 const Button = styled.button`
     background: ${theme.grey2};
     border: none;
     padding: 10px 25px;
+    cursor: pointer;
     &:focus{
         outline: 3px solid ${theme.focus};
     }
@@ -86,7 +85,7 @@ const Footer = styled.footer`
 `
 
 const FooterNav = styled.nav`
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     @media screen and (min-width: 600px){
         display: flex;
         flex-direction: row;
@@ -116,11 +115,9 @@ const FooterLink = styled.a`
         outline: 3px solid ${theme.focus};
     }
     @media screen and (min-width: 600px){
-        margin-right: 15px;
+        margin-right: 20px;
     }
 `
-
-const SocialLinks = styled.div``
 
 const SocialLink = styled.a`
     margin-right: 10px;
@@ -128,7 +125,7 @@ const SocialLink = styled.a`
         outline: 3px solid ${theme.focus};
     }
     @media screen and (min-width: 600px){
-        margin-right: 15px;
+        margin-right: 20px;
     }
 `
 
@@ -154,7 +151,7 @@ const Layout = ({
                 >
                     <HiddenLabel htmlFor="q">Search query</HiddenLabel>
                     <Input name="q" required placeholder="Search our websites"/>
-                    <Button type="submit"><SearchIcon src={search} alt="Search"/></Button>
+                    <Button type="submit"><img src={search} alt="Search"/></Button>
                 </SearchForm>
             </HeaderContainer>
         </Header>
@@ -167,11 +164,17 @@ const Layout = ({
                         <FooterLink href="https://www.buckscc.gov.uk/services/council-and-democracy/privacy-policy/">Privacy and data</FooterLink>
                         <FooterLink href="https://www.buckscc.gov.uk/services/contact-and-complaints/contact-us/">Contact us</FooterLink>
                     </FooterLinks>
-                    <SocialLinks>
-                        <SocialLink href="https://www.facebook.com/BuckinghamshireCountyCouncil/"><SocialIcon src={facebook} alt="Facebook"/></SocialLink>
-                        <SocialLink href="http://twitter.com/buckscc"><SocialIcon src={twitter} alt="Twitter"/></SocialLink>
-                        <SocialLink href="http://www.youtube.com/buckinghamshirecc"><SocialIcon src={youtube} alt="YouTube"/></SocialLink>
-                    </SocialLinks>
+                    <div>
+                        <SocialLink href="https://www.facebook.com/BuckinghamshireCountyCouncil/">
+                            <SocialIcon src={facebook} alt="Facebook"/>
+                        </SocialLink>
+                        <SocialLink href="http://twitter.com/buckscc">
+                            <SocialIcon src={twitter} alt="Twitter"/>
+                        </SocialLink>
+                        <SocialLink href="http://www.youtube.com/buckinghamshirecc">
+                            <SocialIcon src={youtube} alt="YouTube"/>
+                        </SocialLink>
+                    </div>
                 </FooterNav>
                 <CopyrightNotice>© 2019 Buckinghamshire Council</CopyrightNotice>
             </Container>

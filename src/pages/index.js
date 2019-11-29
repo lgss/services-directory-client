@@ -1,9 +1,10 @@
 import React from "react"
 import Layout from "../components/Layout"
+import PageHeader from "../components/PageHeader"
 
 const IndexPage = () =>
     <Layout>
-        <h1>Index page</h1>
+        <PageHeader/>
     </Layout>
 
 export default IndexPage

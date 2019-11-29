@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: Helvetica Neue;
     font-weight: normal;
-    src: url(helveticaneue-medium.woff);
+    src: url(helveticaneue2-medium.woff);
   }
   @font-face {
     font-family: Helvetica Neue;
