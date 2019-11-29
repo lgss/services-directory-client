@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
 
   *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 `
 
