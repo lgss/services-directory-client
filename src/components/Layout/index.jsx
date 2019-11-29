@@ -11,6 +11,7 @@ import youtube from "./youtube.svg"
 const Header = styled.header`
     background: ${theme.blue};
     color: white;
+    padding: 10px;
 `
 
 const Container = styled.div`
@@ -19,7 +20,9 @@ const Container = styled.div`
     margin-right: auto;
 `
 
-const Masthead = styled.img``
+const Masthead = styled.a`
+    text-decoration: none;
+`
 
 const SearchForm = styled.form`
     display: none;
@@ -33,17 +36,48 @@ const SearchIcon = styled.img``
 
 const Button = styled.button``
 
-const Footer = styled.footer``
+const Footer = styled.footer`
+    background: ${theme.darkGrey};
+    color: white;
+    padding: 30px 10px;
+`
 
-const FooterNav = styled.nav``
+const FooterNav = styled.nav`
+    margin-bottom: 20px;
+    @media screen and (min-width: 600px){
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+`
 
-const FooterLinks = styled.div``
+const FooterLinks = styled.div`
+    margin-bottom: 15px;
+`
 
-const FooterLink = styled.a``
+const FooterLink = styled.a`
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+    &:focus{
+        color: ${theme.darkGrey};
+        background: ${theme.focus};
+        outline: 3px solid ${theme.focus};
+    }
+`
 
 const SocialLinks = styled.div``
 
-const SocialLink = styled.a``
+const SocialLink = styled.a`
+    margin-right: 10px;
+`
+
+const SocialIcon = styled.img`
+    width: 25px;
+`
 
 const CopyrightNotice = styled.p``
 
@@ -54,10 +88,12 @@ const Layout = ({
     <>
         <Header>
             <Container fullWidth={fullWidth}>
-                <Masthead src={masthead} alt="Buckinghamshire Council"/>
+                <Masthead href="https://www.buckscc.gov.uk">
+                    <img src={masthead} alt="Buckinghamshire Council"/>
+                </Masthead>
                 <SearchForm
                     method="get"
-                    action="https://buckscc.gov.uk/search"
+                    action="https://www.buckscc.gov.uk/search"
                 >
                     <HiddenLabel htmlFor="q">Search query</HiddenLabel>
                     <Input name="q" required/>
@@ -71,13 +107,13 @@ const Layout = ({
                 <FooterNav>
                     <FooterLinks>
                         <FooterLink href="https://www.buckscc.gov.uk/services/council-and-democracy/cookies/">Cookies</FooterLink>
-                        <FooterLink href="https://www.buckscc.gov.uk/services/council-and-democracy/privacy-policy/">Privacy</FooterLink>
+                        <FooterLink href="https://www.buckscc.gov.uk/services/council-and-democracy/privacy-policy/">Privacy and data</FooterLink>
                         <FooterLink href="https://www.buckscc.gov.uk/services/contact-and-complaints/contact-us/">Contact us</FooterLink>
                     </FooterLinks>
                     <SocialLinks>
-                        <SocialLink href="https://www.facebook.com/BuckinghamshireCountyCouncil/"><img src={facebook} alt="Facebook"/></SocialLink>
-                        <SocialLink href="http://twitter.com/buckscc"><img src={twitter} alt="Twitter"/></SocialLink>
-                        <SocialLink href="http://www.youtube.com/buckinghamshirecc"><img src={youtube} alt="YouTube"/></SocialLink>
+                        <SocialLink href="https://www.facebook.com/BuckinghamshireCountyCouncil/"><SocialIcon src={facebook} alt="Facebook"/></SocialLink>
+                        <SocialLink href="http://twitter.com/buckscc"><SocialIcon src={twitter} alt="Twitter"/></SocialLink>
+                        <SocialLink href="http://www.youtube.com/buckinghamshirecc"><SocialIcon src={youtube} alt="YouTube"/></SocialLink>
                     </SocialLinks>
                 </FooterNav>
                 <CopyrightNotice>© 2019 Buckinghamshire Council</CopyrightNotice>
