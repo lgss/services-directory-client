@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *{
-    font-family: "Helvetica Neue", "Arial" sans-serif;
+    font-family: Helvetica Neue, Arial, Helvetica, sans-serif, sans-serif;
   }
 `
 
