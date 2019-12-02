@@ -11,7 +11,7 @@ import youtube from "./youtube.svg"
 const Header = styled.header`
     background: ${theme.blue};
     color: white;
-    padding: 10px;
+    padding: 10px 15px;
 `
 
 const Container = styled.div`

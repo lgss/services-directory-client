@@ -4,17 +4,19 @@ import theme from "../_theme"
 import Checkbox, { Checkboxes } from "../Checkbox"
 import config from "../../_config"
 
-export const Fieldset = styled.fieldset`
+const Fieldset = styled.fieldset`
     border: none;
     margin-bottom: 55px;
 `
 
-export const Question = styled.h2`
+const Question = styled.p`
     color: ${theme.grey1};
     margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
 `
 
-export const Hint = styled.span`
+const Hint = styled.p`
     color: ${theme.grey2};
 `
 

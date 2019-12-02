@@ -8,7 +8,7 @@ import Form from "../components/Form"
 const ContentArea = styled.main`
     max-width: ${theme.maxWidth};
     margin: 0px auto;
-    padding: 40px 10px;
+    padding: 40px 15px;
 `
 
 const TwoThirdsColumn = styled.div`

@@ -15,7 +15,7 @@ const Outer = styled.section`
 `
 
 const Inner = styled.div`
-    padding: 0px 10px;
+    padding: 0px 15px;
     max-width: ${theme.maxWidth};
     margin-left: auto;
     margin-right: auto;
