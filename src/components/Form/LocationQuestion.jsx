@@ -36,6 +36,7 @@ const LocationQuestion = ()=>
         <Hint>Enter a Buckinghamshire town or postcode</Hint>
         <Input
             name="location"
+            id="location"
             placeholder="eg. HP20 1UA"
             required
         />

@@ -150,7 +150,7 @@ const Layout = ({
                     action="https://www.buckscc.gov.uk/search"
                 >
                     <HiddenLabel htmlFor="q">Search query</HiddenLabel>
-                    <Input name="q" required placeholder="Search our websites"/>
+                    <Input name="q" id="q" required placeholder="Search our websites"/>
                     <Button type="submit"><img src={search} alt="Search"/></Button>
                 </SearchForm>
             </HeaderContainer>
