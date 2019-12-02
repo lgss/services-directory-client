@@ -8,14 +8,13 @@ const Button = styled.button`
     background: ${theme.blue};
     color: white;
     border: none;
-    padding: 15px 55px;
+    padding: 20px 65px;
     font-size: 1.1rem;
     font-weight: bold;
-    margin-right: 10px;
     cursor: pointer;
     display: block;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     &:hover{
         filter: brightness(1.3)
     }
@@ -45,7 +44,7 @@ const Form = () => {
             <InterestsQuestion/>
             <LocationQuestion/>
             <Button type="submit">See results</Button>
-            Or, just <A href="/map">see everything</A>.
+            <p>Or, just <A href="/map">see everything</A>.</p>
         </form>
     )
 }
