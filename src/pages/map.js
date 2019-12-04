@@ -97,7 +97,6 @@ const MapPage = ({
             <Nav>Filters here</Nav>
             <ResultsArea>
                 <ListArea>
-                    {hoveredService || "false"}
                     <CardList>
                         {services.map(service =>
                             <Card 
@@ -121,6 +120,7 @@ const MapPage = ({
                 <MapArea>
                     <Map
                         services={services}
+                        hoveredService={hoveredService}
                         lat={query.lat}
                         lng={query.lng}
                     />
