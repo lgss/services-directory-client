@@ -9,10 +9,12 @@ import twitter from "./twitter.svg"
 import youtube from "./youtube.svg"
 
 const Outer = styled.div`
-    display: ${props => props.fullPage && "flex" };
-    flex-direction: ${props => props.fullPage && "column" };
-    overflow: ${props => props.fullPage && "hidden" };
-    height: ${props => props.fullPage && "100vh" };
+    @media screen and (min-width: 700px){
+        display: ${props => props.fullPage && "flex" };
+        flex-direction: ${props => props.fullPage && "column" };
+        overflow: ${props => props.fullPage && "hidden" };
+        height: ${props => props.fullPage && "100vh" };
+    }
 `
 
 const Header = styled.header`

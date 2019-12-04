@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
+import { truncate, prettyDistance } from "../../lib/utils"
 
 const Outer = styled.li`
     background-color: white;
     margin-bottom: 20px;
     padding: 25px;
-    box-shadow: 0px 4px 0px ${theme.blue};
+    box-shadow: 0px 4px 0px #233B8E24;
     position: relative;
     &:active{
         transform: translateY(4px);
@@ -61,15 +62,21 @@ const Meta = styled.span`
     font-size: 0.95rem;
 `
 
-const Card = () =>
+const Card = ({
+    name,
+    parentOrganisation,
+    description,
+    category,
+    distance
+}) =>
     <Outer>
         <Link href="#">
-            <Headline>Service name</Headline>
+            <Headline>{name || parentOrganisation}</Headline>
         </Link>
-        <Description>Opening June 2019. A new technology-driven and interactive visitor attraction which hopes to inspire future engineers & bring them closer.</Description>
+        <Description>{truncate(description, 15)}</Description>
         <Footer>
-            <Tag>Category</Tag>
-            <Meta>About a mile away</Meta>
+            <Tag>{category}</Tag>
+            <Meta>{prettyDistance(distance)}</Meta>
         </Footer>
     </Outer>
 
