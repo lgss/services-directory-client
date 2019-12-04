@@ -1,5 +1,7 @@
 # Bucks service directory
 
+**[On the web here](https://bucks-service-directory.netlify.com/)**
+
 A community service directory for Buckinghamshire.
 
 It's a standard client-rendered React app that consumes data from an API.
