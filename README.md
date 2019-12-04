@@ -13,6 +13,10 @@ It's a standard client-rendered React app that consumes data from an API.
 1. `npm i`
 2. `npm run dev`
 
+## Running it on the web
+
+It's suitable for deployment to free static hosts, especially Netlify.
+
 ## Config
 
 It looks for the `API_HOST` environment variable.
