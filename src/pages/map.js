@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import theme from "../components/_theme"
 import Card from "../components/Card"
+import Map from "../components/Map"
 
 const Nav = styled.nav`
     padding: 10px 15px;
@@ -32,14 +33,8 @@ const MapArea = styled.div`
     @media screen and (min-width: 700px){
         display: block;
         flex: 1;
+        padding: 15px 15px 15px 0px;
     }
-`
-
-const Map = styled.div`
-    width: 100%;
-    height: 100%;
-    padding: 50px;
-    background: grey;
 `
 
 const CardList = styled.ul`
@@ -92,19 +87,20 @@ const MapPage = ({
 
     return(
         <Layout fullPage>
-
             <Nav>Filters here</Nav>
             <ResultsArea>
                 <ListArea>
                     <CardList>
                         {services.map(service =>
-                            <Card {...service}/>
+                            <Card {...service} key={service.assetId}/>
                         )}
                     </CardList>
                     <P>That's everything within two miles</P>
                     <Button>Widen search radius</Button>
                 </ListArea>
-                <MapArea><Map/></MapArea>
+                <MapArea>
+                    <Map/>
+                </MapArea>
             </ResultsArea>
         </Layout>
     )

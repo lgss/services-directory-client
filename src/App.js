@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
   a{
     color: ${theme.blue}
   }
+
+  .list-map{
+    height: 100%;
+  }
 `
 
 
