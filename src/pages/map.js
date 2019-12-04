@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import queryString from "query-string"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import theme from "../components/_theme"
@@ -79,6 +80,8 @@ const MapPage = ({
 
     const [services, setServices] = useState([])
 
+    const query = queryString.parse(location.search)
+
     useEffect(()=>{
         fetch(`${process.env.REACT_APP_API_HOST}/api/services${location.search}`)
             .then(res => res.json())
@@ -99,7 +102,10 @@ const MapPage = ({
                     <Button>Widen search radius</Button>
                 </ListArea>
                 <MapArea>
-                    <Map/>
+                    <Map
+                        lat={query.lat}
+                        lng={query.lng}
+                    />
                 </MapArea>
             </ResultsArea>
         </Layout>

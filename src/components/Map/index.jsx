@@ -1,7 +1,10 @@
 import React from "react"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api"
 
-const Map = () => {
+const Map = ({
+    lat,
+    lng
+}) => {
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY
     })
@@ -12,10 +15,10 @@ const Map = () => {
             mapTypeControl: false,
             streetViewControl: false
         }}
-        zoom={12} 
+        zoom={13} 
         center={{
-            lat: 0, 
-            lng: 0
+            lat: parseFloat(lat), 
+            lng: parseFloat(lng)
         }}
     /> 
     : <p>wait...</p>
