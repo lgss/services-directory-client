@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import queryString from "query-string"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import theme from "../components/_theme"
 import Card from "../components/Card"
 import Map from "../components/Map"
+import { prettyMiles } from "../lib/utils"
 
 const Nav = styled.nav`
     padding: 10px 15px;
@@ -78,7 +80,9 @@ const MapPage = ({
     location
 }) => {
 
+    const [hoveredService, setHoveredService] = useState(false)
     const [services, setServices] = useState([])
+    const history = useHistory()
 
     const query = queryString.parse(location.search)
 
@@ -93,13 +97,26 @@ const MapPage = ({
             <Nav>Filters here</Nav>
             <ResultsArea>
                 <ListArea>
+                    {hoveredService || "false"}
                     <CardList>
                         {services.map(service =>
-                            <Card {...service} key={service.assetId}/>
+                            <Card 
+                                {...service} 
+                                key={service.assetId}
+                                onMouseEnter={()=>{
+                                    setHoveredService(service.assetId)
+                                }}
+                                onMouseLeave={()=>{
+                                    setHoveredService(false)
+                                }}
+                            />
                         )}
                     </CardList>
-                    <P>That's everything within a mile</P>
-                    <Button>Widen search area</Button>
+                    <P>That's everything within {prettyMiles(query.radius)}</P>
+                    <Button onClick={()=>{
+                        query.radius = 1000
+                        history.push(`/map?${queryString.stringify(query)}`)
+                    }}>Widen search area</Button>
                 </ListArea>
                 <MapArea>
                     <Map

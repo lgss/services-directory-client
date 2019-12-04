@@ -1,5 +1,6 @@
 import React from "react"
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
+import { truncate } from "../../lib/utils"
 
 
 
@@ -11,13 +12,12 @@ const ServiceMarker = ({service}) =>
         }}
     />
 
-
 const Map = ({
     services,
     lat,
     lng
 }) => {
-    const {isLoaded, loadError} = useLoadScript({
+    const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_CLIENT_KEY
     })
 

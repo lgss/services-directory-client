@@ -43,7 +43,12 @@ export const prettyFeatures = (
     return array.join("  <span aria-hidden='true'>·</span>  ")
 }
 
-export const metersToMiles = meters => meters * 0.0006213712
+export const prettyMiles = meters => {
+    const roundedMiles = Math.round(meters * 0.0006213712)
+    if(roundedMiles > 1) return "less than a mile" 
+    if(roundedMiles === 1) return "a mile" 
+    return `${roundedMiles} miles`
+}
 
 export const milesToMeters = miles => miles * 1609.344
 

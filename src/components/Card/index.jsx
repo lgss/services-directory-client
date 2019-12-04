@@ -70,9 +70,10 @@ const Card = ({
     parentOrganisation,
     description,
     category,
-    distance
+    distance,
+    ...props
 }) =>
-    <Outer>
+    <Outer {...props}>
         <Link href="#">
             <Headline>{name || parentOrganisation}</Headline>
         </Link>
