@@ -98,11 +98,12 @@ const MapPage = ({
                             <Card {...service} key={service.assetId}/>
                         )}
                     </CardList>
-                    <P>That's everything within two miles</P>
-                    <Button>Widen search radius</Button>
+                    <P>That's everything within a mile</P>
+                    <Button>Widen search area</Button>
                 </ListArea>
                 <MapArea>
                     <Map
+                        services={services}
                         lat={query.lat}
                         lng={query.lng}
                     />

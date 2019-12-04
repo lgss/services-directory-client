@@ -30,6 +30,9 @@ const Link = styled.a`
         width: 100%;
         height: 100%;
     }
+    &:focus{
+        outline: none;
+    }
 `
 
 const Headline = styled.h3`

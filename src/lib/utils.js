@@ -43,4 +43,8 @@ export const prettyFeatures = (
     return array.join("  <span aria-hidden='true'>·</span>  ")
 }
 
+export const metersToMiles = meters => meters * 0.0006213712
+
+export const milesToMeters = miles => miles * 1609.344
+
 export default null
