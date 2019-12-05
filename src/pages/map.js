@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-// import { Route } from "react-router-dom"
+import React, { useEffect, useState, useRef } from "react"
 import { useHistory } from "react-router-dom"
 import queryString from "query-string"
 import Layout from "../components/Layout"
@@ -7,7 +6,6 @@ import styled from "styled-components"
 import theme from "../components/_theme"
 import Card from "../components/Card"
 import Map from "../components/Map"
-// import { prettyMiles } from "../lib/utils"
 
 const Nav = styled.nav`
     padding: 10px 15px;
@@ -95,7 +93,10 @@ const MapPage = ({
                     </CardList>
                 </ListArea>
                 <MapArea>
+                    {query.lat}
+                    {query.lng}
                     <Map
+                        query={query}
                         services={services}
                         hoveredService={hoveredService}
                         lat={query.lat}
