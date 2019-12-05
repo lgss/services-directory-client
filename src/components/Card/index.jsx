@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
+import { Link } from "react-router-dom"
 import { truncate, prettyDistance } from "../../lib/utils"
 
 const Outer = styled.li`
@@ -18,7 +19,7 @@ const Outer = styled.li`
     }
 `
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${theme.grey1};
     &:after{
@@ -66,6 +67,7 @@ const Meta = styled.span`
 `
 
 const Card = ({
+    assetId,
     name,
     parentOrganisation,
     description,
@@ -74,9 +76,11 @@ const Card = ({
     ...props
 }) =>
     <Outer {...props}>
-        <Link href="#">
+        <StyledLink to={{
+            pathname: `/map/${assetId}`
+        }}>
             <Headline>{name || parentOrganisation}</Headline>
-        </Link>
+        </StyledLink>
         <Description>{truncate(description, 15)}</Description>
         <Footer>
             <Tag>{category}</Tag>

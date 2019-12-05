@@ -38,7 +38,7 @@ const App = () =>
     <Router>
       <GlobalStyle/>
       <Route path="/" component={IndexPage} exact/>
-      <Route path="/map" component={MapPage} exact/>
+      <Route path="/map" component={MapPage}/>
     </Router>
 
 export default App

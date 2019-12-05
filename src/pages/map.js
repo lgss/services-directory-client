@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import queryString from "query-string"
 import Layout from "../components/Layout"
@@ -7,6 +8,9 @@ import theme from "../components/_theme"
 import Card from "../components/Card"
 import Map from "../components/Map"
 import { prettyMiles } from "../lib/utils"
+
+const DetailDialog = (props) =>
+    <h1>Details her{console.log(props)}</h1>
 
 const Nav = styled.nav`
     padding: 10px 15px;
@@ -94,6 +98,7 @@ const MapPage = ({
 
     return(
         <Layout fullPage>
+            <Route path={"/map/:assetId"} component={DetailDialog}/>
             <Nav>Filters here</Nav>
             <ResultsArea>
                 <ListArea>
