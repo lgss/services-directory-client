@@ -47,7 +47,7 @@ const Masthead = styled.a`
 
 const SearchForm = styled.form`
     display: none;
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 700px){
         display: flex;
         flex-direction: row;
         min-width: 400px;
