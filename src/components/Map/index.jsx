@@ -40,15 +40,15 @@ const Map = ({
         }}
         zoom={14} 
         center={{
-            lat: parseFloat(lat), 
-            lng: parseFloat(lng)
+            lat: parseFloat(lat || 51.8155276), 
+            lng: parseFloat(lng || -0.8106306)
         }}
     > 
         {services.map(service=>
             <ServiceMarker service={service} hoveredService={hoveredService}/>    
         )}
     </GoogleMap>
-    : <p>wait...</p>
+    : <p>Map loading...</p>
 }
 
 export default Map
