@@ -43,8 +43,6 @@ const Form = () => {
         <form method="get" action="/map">
             <InterestsQuestion/>
             <LocationQuestion/>
-            {/* Initial radius */}
-            <input name="radius" value="500" type="hidden"/>
             <Button type="submit">See results</Button>
             <p>Or, just <A href="/map">see everything</A>.</p>
         </form>
