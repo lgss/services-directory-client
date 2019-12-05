@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Route } from "react-router-dom"
+// import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import queryString from "query-string"
 import Layout from "../components/Layout"
@@ -7,10 +7,7 @@ import styled from "styled-components"
 import theme from "../components/_theme"
 import Card from "../components/Card"
 import Map from "../components/Map"
-import { prettyMiles } from "../lib/utils"
-
-const DetailDialog = (props) =>
-    <h1>Details her{console.log(props)}</h1>
+// import { prettyMiles } from "../lib/utils"
 
 const Nav = styled.nav`
     padding: 10px 15px;
@@ -49,37 +46,6 @@ const CardList = styled.ul`
     margin-bottom: 50px;
 `
 
-const P = styled.p`
-    text-align: center;
-    font-size: 1.1em;
-    color: ${theme.grey2};
-`
-
-const Button = styled.button`
-    background: none;
-    color: ${theme.blue};
-    border: 2px solid ${theme.blue};
-    padding: 20px 45px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 15px;
-    &:hover{
-        filter: brightness(1.3)
-    }
-    &:focus{
-        outline: 3px solid ${theme.focus};
-    }
-    @media screen and (min-width: 700px){
-        display: block;
-        width: auto;
-        margin: 15px auto 40px auto;
-    }
-`
-
 const MapPage = ({
     location
 }) => {
@@ -90,16 +56,27 @@ const MapPage = ({
 
     const query = queryString.parse(location.search)
 
-    useEffect(()=>{
-        fetch(`${process.env.REACT_APP_API_HOST}/api/services${location.search}`)
-            .then(res => res.json())
-            .then(data => setServices(data.results))
+    useEffect(() => {
+        const fetchServices = async () => {
+            // 1. Attempt to geocode location server-side if not explicitly provided
+            if(!parseFloat(query.lat) || !parseFloat(query.lng)){
+                let res1 = await fetch(`${process.env.REACT_APP_API_HOST}/api/geocode?location=${query.location}`)
+                let data1 = await res1.json()
+                query.lat = data1.results[0].geometry.location.lat
+                query.lng = data1.results[0].geometry.location.lng
+                history.push(`/map?${queryString.stringify(query)}`)
+            }
+            let res2 = await fetch(`${process.env.REACT_APP_API_HOST}/api/services?${queryString.stringify(query)}`)
+            let data2 = await res2.json()
+            setServices(data2.results)
+        }
+        fetchServices()
+    // eslint-disable-next-line
     }, [location.search])
 
     return(
         <Layout fullPage>
-            <Route path={"/map/:assetId"} component={DetailDialog}/>
-            <Nav>Filters here</Nav>
+            <Nav></Nav>
             <ResultsArea>
                 <ListArea>
                     <CardList>
@@ -116,11 +93,6 @@ const MapPage = ({
                             />
                         )}
                     </CardList>
-                    <P>That's everything within {prettyMiles(query.radius)}</P>
-                    <Button onClick={()=>{
-                        query.radius = 1000
-                        history.push(`/map?${queryString.stringify(query)}`)
-                    }}>Widen search area</Button>
                 </ListArea>
                 <MapArea>
                     <Map
