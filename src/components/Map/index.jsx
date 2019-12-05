@@ -9,6 +9,7 @@ const ServiceMarker = ({
     hoveredService
 }) => 
     <Marker
+        key={service.assetId}
         position={{
             lat: service.geo.coordinates[1] + (service.assetId/1500000),
             lng: service.geo.coordinates[0] + (service.assetId/1500000)
@@ -17,7 +18,7 @@ const ServiceMarker = ({
         icon={{
             url: hoveredService === service.assetId ? activeMarker : marker,
             optimized: false,
-            scaledSize: hoveredService === service.assetId ? new window.google.maps.Size(60, 60) : new window.google.maps.Size(40, 40),
+            scaledSize: hoveredService === service.assetId ? new window.google.maps.Size(70, 70) : new window.google.maps.Size(40, 40),
         }}
     />
 
