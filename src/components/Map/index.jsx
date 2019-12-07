@@ -38,33 +38,35 @@ const Map = ({
     const handleDrag = () => {
         query.lat = mapInstance.current.state.map.center.lat()
         query.lng = mapInstance.current.state.map.center.lng()
-        console.log(query)
+        query.page = 1
         history.push(`/map?${queryString.stringify(query)}`)
     }
 
-    return isLoaded ? <GoogleMap 
-        mapContainerClassName="list-map"
-        ref={mapInstance}
-        options={{
-            mapTypeControl: false,
-            streetViewControl: false
-        }}
-        zoom={16}
-        center={{
-            lat: parseFloat(lat), 
-            lng: parseFloat(lng)
-        }}
-        onDragEnd={handleDrag}
-    > 
-        {services.map(service=>
-            <ServiceMarker
-                key={service.assetId} 
-                service={service} 
-                hoveredService={hoveredService}
-            />    
-        )}
-    </GoogleMap>
-    : <p>Map loading...</p>
+    return isLoaded ? 
+        <GoogleMap 
+            mapContainerClassName="list-map"
+            ref={mapInstance}
+            options={{
+                mapTypeControl: false,
+                streetViewControl: false
+            }}
+            zoom={16}
+            center={{
+                lat: parseFloat(lat), 
+                lng: parseFloat(lng)
+            }}
+            onDragEnd={handleDrag}
+        > 
+            {services.map(service=>
+                <ServiceMarker
+                    key={service.assetId} 
+                    service={service} 
+                    hoveredService={hoveredService}
+                />    
+            )}
+        </GoogleMap>
+    : 
+        <p>Map loading...</p>
 }
 
 export default Map
