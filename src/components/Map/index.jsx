@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api"
 import ServiceMarker from "./ServiceMarker"
 import { useHistory } from "react-router-dom"
@@ -17,6 +17,23 @@ const Map = ({
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_CLIENT_KEY
     })
+    const [initialBounds, setInitialBounds] = useState(false)
+
+    useEffect(()=>{
+        if(isLoaded && !initialBounds){
+            const bounds = new window.google.maps.LatLngBounds()
+            services.map(service => {
+                console.log(service)
+                return bounds.extend(new window.google.maps.LatLng(
+                    service.geo.coordinates[1],
+                    service.geo.coordinates[0]
+                ))
+            })
+            setInitialBounds(true)
+            mapInstance.current.state.map.fitBounds(bounds)
+        }
+    // eslint-disable-next-line
+    }, [services])
 
     const handleDrag = () => {
         query.lat = mapInstance.current.state.map.center.lat()
@@ -32,7 +49,7 @@ const Map = ({
             mapTypeControl: false,
             streetViewControl: false
         }}
-        zoom={14}
+        zoom={16}
         center={{
             lat: parseFloat(lat), 
             lng: parseFloat(lng)

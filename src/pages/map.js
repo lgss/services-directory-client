@@ -50,7 +50,9 @@ const MapPage = ({
 
     const [hoveredService, setHoveredService] = useState(false)
     const [services, setServices] = useState([])
+    const [page, setPage] = useState(1)
     const history = useHistory()
+    const listInstance = useRef(null)
 
     const query = queryString.parse(location.search)
 
@@ -69,6 +71,7 @@ const MapPage = ({
             setServices(data2.results)
         }
         fetchServices()
+        listInstance.current.scrollTop = 0
     // eslint-disable-next-line
     }, [location.search])
 
@@ -76,7 +79,7 @@ const MapPage = ({
         <Layout fullPage>
             <Nav></Nav>
             <ResultsArea>
-                <ListArea>
+                <ListArea ref={listInstance}>
                     <CardList>
                         {services.map(service =>
                             <Card 
@@ -91,6 +94,11 @@ const MapPage = ({
                             />
                         )}
                     </CardList>
+                    <button onClick={()=>{
+                        query.page = page + 1
+                        history.push(`/map?${queryString.stringify(query)}`)
+                        setPage(page + 1)
+                    }}>Next page</button>
                 </ListArea>
                 <MapArea>
                     {query.lat}
