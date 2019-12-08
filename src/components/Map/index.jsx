@@ -19,7 +19,13 @@ const Map = ({
     })
     const [initialBounds, setInitialBounds] = useState(false)
 
+    // console.log(initialBounds)
+    // console.log(isLoaded)
+
     useEffect(()=>{
+
+        // console.log(isLoaded)
+
         if(isLoaded && !initialBounds){
             const bounds = new window.google.maps.LatLngBounds()
             services.map(service => {

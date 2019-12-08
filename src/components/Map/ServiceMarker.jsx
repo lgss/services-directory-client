@@ -8,6 +8,7 @@ const ServiceMarker = ({
     hoveredService
 }) => 
     <Marker
+        animation={window.google.maps.Animation.DROP}
         position={{
             lat: service.geo.coordinates[1] + (service.assetId/1500000),
             lng: service.geo.coordinates[0] + (service.assetId/1500000)

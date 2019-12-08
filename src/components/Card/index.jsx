@@ -14,6 +14,10 @@ const Outer = styled.li`
         transform: translateY(4px);
         background: ${theme.activeCard};
     }
+    &:hover{
+        background-color: #FFFBF4;
+        box-shadow: 0px 4px 0px ${theme.focus};
+    }
     &:focus-within{
         box-shadow: 0 0 0 3px ${theme.focus};
     }

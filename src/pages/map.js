@@ -24,6 +24,8 @@ const ResultsArea = styled.section`
 
 const ListArea = styled.div`
     padding: 15px 15px 50px 15px;
+    opacity: ${props => props.reloading ? "0.5" : "1"};
+    pointer-events: ${props => props.reloading ? "none" : "inherit"};
     @media screen and (min-width: 700px){
         width: 500px;
         min-height: 0;
@@ -60,6 +62,8 @@ const MapPage = ({
     const [hoveredService, setHoveredService] = useState(false)
     const [services, setServices] = useState([])
 
+    const [reloading, setReloading] = useState(false)
+
     const [currentPage, setCurrentPage] = useState(null)
     const [totalPages, setTotalPages] = useState(null)
 
@@ -69,6 +73,7 @@ const MapPage = ({
     const query = queryString.parse(location.search)
 
     useEffect(() => {
+        setReloading(true)
         const fetchServices = async () => {
             // 1. Attempt to geocode location server-side if not explicitly provided
             if(!parseFloat(query.lat) || !parseFloat(query.lng)){
@@ -83,6 +88,7 @@ const MapPage = ({
             setTotalPages(data2.pages)
             setCurrentPage(query.page || 1)
             setServices(data2.results)
+            setReloading(false)
         }
         fetchServices()
         listInstance.current.scrollTop = 0
@@ -93,7 +99,11 @@ const MapPage = ({
         <Layout fullPage>
             <Nav></Nav>
             <ResultsArea>
-                <ListArea ref={listInstance}>
+                <ListArea 
+                    ref={listInstance} 
+                    reloading={reloading} 
+                    // ariaLive="polite"
+                >
                     <CardList>
                         {services.map(service =>
                             <Card 
