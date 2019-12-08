@@ -29,6 +29,9 @@ const ListArea = styled.div`
         min-height: 0;
         overflow-y: scroll;
     }
+    @media screen and (min-width: 1600px){
+        width: 900px;
+    }
 `
 
 const MapArea = styled.div`
@@ -36,13 +39,18 @@ const MapArea = styled.div`
     @media screen and (min-width: 700px){
         display: block;
         flex: 1;
-        padding: 15px 15px 15px 0px;
+        /* padding: 15px 15px 15px px; */
     }
 `
 
 const CardList = styled.ul`
     list-style: none;
     margin-bottom: 50px;
+    @media screen and (min-width: 1600px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 15px;
+    }
 `
 
 const MapPage = ({
