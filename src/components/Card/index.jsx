@@ -16,7 +16,7 @@ const Outer = styled.li`
     }
     &:hover{
         background-color: #FFFBF4;
-        box-shadow: 0px 4px 0px ${theme.focus};
+        box-shadow: 0px 4px 0px #F4E6C6;
     }
     &:focus-within{
         box-shadow: 0 0 0 3px ${theme.focus};

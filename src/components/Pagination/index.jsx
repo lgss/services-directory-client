@@ -55,26 +55,11 @@ const P = styled.p`
 `
 
 
-const Pagination = ({
-    currentPage,
-    setCurrentPage,
-    totalPages, 
-    query
-}) =>
+const Pagination = ({}) =>
     <>
         <P>Showing 20 nearest results</P>
-        <NextButton onClick={()=>{
-            query.page = page + 1
-            history.push(`/map?${queryString.stringify(query)}`)
-            setPage(page + 1)
-        }}>Next page</NextButton>
-        {page > 1 &&
-            <PrevButton onClick={()=>{
-                query.page = page - 1
-                history.push(`/map?${queryString.stringify(query)}`)
-                setPage(page - 1)
-            }}>Previous page</PrevButton>
-        }
+        <NextButton onClick={}>Next page</NextButton>
+        <PrevButton onClick={}>Previous page</PrevButton>
     </>
 
 export default Pagination

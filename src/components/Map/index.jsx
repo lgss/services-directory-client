@@ -1,8 +1,17 @@
 import React, { useEffect, useRef, useState } from "react"
+import styled from "styled-components"
+import theme from "../_theme"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api"
 import ServiceMarker from "./ServiceMarker"
 import { useHistory } from "react-router-dom"
 import queryString from "query-string"
+
+const P = styled.p`
+    color: ${theme.grey2};
+    margin: 50px 0px 20px 0px;
+    text-align: center;
+    opacity: 0.4;
+`
 
 const Map = ({
     query,
@@ -72,7 +81,7 @@ const Map = ({
             )}
         </GoogleMap>
     : 
-        <p>Map loading...</p>
+        <P>Map loading...</P>
 }
 
 export default Map

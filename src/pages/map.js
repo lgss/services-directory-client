@@ -24,7 +24,7 @@ const ResultsArea = styled.section`
 
 const ListArea = styled.div`
     padding: 15px 15px 50px 15px;
-    opacity: ${props => props.reloading ? "0.5" : "1"};
+    opacity: ${props => props.reloading ? "0.4" : "1"};
     pointer-events: ${props => props.reloading ? "none" : "inherit"};
     @media screen and (min-width: 700px){
         width: 500px;
@@ -53,6 +53,12 @@ const CardList = styled.ul`
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 15px;
     }
+`
+
+const P = styled.p`
+    color: ${theme.grey2};
+    margin: 30px 0px 20px 0px;
+    text-align: center;
 `
 
 const MapPage = ({
@@ -118,6 +124,7 @@ const MapPage = ({
                             />
                         )}
                     </CardList>
+                    {services.length < 1 && <P>Loading results...</P>}
 
                     {/* <Pagination 
                         currentPage={currentPage}
