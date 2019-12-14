@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
+import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import queryString from "query-string"
 import Layout from "../components/Layout"
@@ -6,6 +7,7 @@ import styled from "styled-components"
 import theme from "../components/_theme"
 import Card from "../components/Card"
 import Map from "../components/Map"
+import DetailDialog from "../components/DetailDialog"
 import Pagination from "../components/Pagination"
 
 const Nav = styled.nav`
@@ -136,6 +138,7 @@ const MapPage = ({
                                 {services.map(service =>
                                     <Card 
                                         {...service} 
+                                        search={location.search}
                                         key={service.assetId}
                                         onMouseEnter={()=>{
                                             setHoveredService(service.assetId)
@@ -164,6 +167,7 @@ const MapPage = ({
                     />
                 </MapArea>
             </ResultsArea>
+            <Route path="/services/:assetId" component={DetailDialog}/>
         </Layout>
     )
 }

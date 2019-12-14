@@ -1,22 +1,22 @@
 import React from "react"
-import { Dialog } from ""
+import { useHistory } from "react-router-dom"
+import { Dialog } from "@reach/dialog"
 
-function Example(props) {
-    const [showDialog, setShowDialog] = React.useState(false);
-    const open = () => setShowDialog(true);
-    const close = () => setShowDialog(false);
-  
-    return (
-      <div>
-        <button onClick={open}>Open Dialog</button>
-  
-        <Dialog isOpen={showDialog} onDismiss={close}>
-          <button className="close-button" onClick={close}>
-            <VisuallyHidden>Close</VisuallyHidden>
-            <span aria-hidden>×</span>
-          </button>
-          <p>Hello there. I am a dialog</p>
-        </Dialog>
-      </div>
-    );
+const DetailDialog = ({
+  location
+}) => {
+
+  const history = useHistory()
+
+  const close = () => {
+    history.push(`/services${location.search}`)
   }
+
+  return(
+    <Dialog isOpen={true} onDismiss={close}>
+      <button onClick={close}>Close</button>
+      <p>Hello there. I am a dialog</p>
+    </Dialog>
+  )
+}
+export default DetailDialog
