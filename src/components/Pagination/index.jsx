@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import theme from "../components/_theme"
-import { useHistory } from "react-router-dom"
-import queryString from "query-string"
+import theme from "../_theme"
+// import { useHistory } from "react-router-dom"
+// import queryString from "query-string"
 
 const NextButton = styled.button`
     background: none;
@@ -55,11 +55,17 @@ const P = styled.p`
 `
 
 
-const Pagination = ({}) =>
+const Pagination = ({
+    currentPage,
+    totalPages,
+    handleNextPage,
+    handlePrevPage,
+    services
+}) =>
     <>
-        <P>Showing 20 nearest results</P>
-        <NextButton onClick={}>Next page</NextButton>
-        <PrevButton onClick={}>Previous page</PrevButton>
+        {currentPage === 1 && <P>Showing nearest {services.length} results</P>}
+        {(currentPage < totalPages) && <NextButton onClick={handleNextPage}>Next page</NextButton>}
+        {(currentPage > 1) && <PrevButton onClick={handlePrevPage}>Previous page</PrevButton>}
     </>
 
 export default Pagination

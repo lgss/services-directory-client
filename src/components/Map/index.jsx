@@ -24,7 +24,7 @@ const Map = ({
     const [initialBoundsAreSet, setInitialBounds] = useState(false)
 
     useEffect(()=>{
-        if(isLoaded && !initialBoundsAreSet){
+        if(isLoaded && services.length > 0 && !initialBoundsAreSet){
             const bounds = new window.google.maps.LatLngBounds()
             services.map(service => {
                 return bounds.extend(new window.google.maps.LatLng(

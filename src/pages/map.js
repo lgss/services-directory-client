@@ -6,7 +6,7 @@ import styled from "styled-components"
 import theme from "../components/_theme"
 import Card from "../components/Card"
 import Map from "../components/Map"
-// import Pagination from "../components/Pagination"
+import Pagination from "../components/Pagination"
 
 const Nav = styled.nav`
     padding: 10px 15px;
@@ -108,10 +108,14 @@ const MapPage = ({
     }
 
     const handleNextPage = () => {
+        query.page = parseInt(currentPage) + 1
+        history.push(`/map?${queryString.stringify(query)}`)
         // ...
     }
 
     const handlePrevPage = () => {
+        query.page = parseInt(currentPage) - 1
+        history.push(`/map?${queryString.stringify(query)}`)
         // ...
     }
 
@@ -123,21 +127,31 @@ const MapPage = ({
                     ref={listInstance} 
                     reloading={reloading} 
                 >
-                    <CardList>
-                        {services.map(service =>
-                            <Card 
-                                {...service} 
-                                key={service.assetId}
-                                onMouseEnter={()=>{
-                                    setHoveredService(service.assetId)
-                                }}
-                                onMouseLeave={()=>{
-                                    setHoveredService(false)
-                                }}
-                            />
-                        )}
-                    </CardList>
-                    {services.length < 1 && <P>Loading results...</P>}
+                    {services.length < 1 ?
+                        <P>Loading results...</P>
+                        :
+                        <CardList>
+                            {services.map(service =>
+                                <Card 
+                                    {...service} 
+                                    key={service.assetId}
+                                    onMouseEnter={()=>{
+                                        setHoveredService(service.assetId)
+                                    }}
+                                    onMouseLeave={()=>{
+                                        setHoveredService(false)
+                                    }}
+                                />
+                            )}
+                        </CardList>
+                    }
+                    <Pagination
+                        services={services}
+                        currentPage={parseInt(currentPage)}
+                        totalPages={parseInt(totalPages)}
+                        handleNextPage={handleNextPage}
+                        handlePrevPage={handlePrevPage}
+                    />
                 </ListArea>
                 <MapArea>
                     <Map
