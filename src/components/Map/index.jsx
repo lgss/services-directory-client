@@ -97,7 +97,7 @@ const Map = ({
                         }
                     }}
                 >
-                    Search as I move the map?
+                    Search as I drag the map
                 </Checkbox>
             </Overlay>
         </>
