@@ -141,11 +141,8 @@ const MapPage = ({
                 </ListArea>
                 <MapArea>
                     <Map
-                        query={query}
                         services={services}
                         hoveredService={hoveredService}
-                        lat={query.lat}
-                        lng={query.lng}
                         handleMapDrag={handleMapDrag}
                     />
                 </MapArea>

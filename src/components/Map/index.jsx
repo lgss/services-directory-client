@@ -3,8 +3,6 @@ import styled from "styled-components"
 import theme from "../_theme"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api"
 import ServiceMarker from "./ServiceMarker"
-import { useHistory } from "react-router-dom"
-import queryString from "query-string"
 
 const P = styled.p`
     color: ${theme.grey2};
@@ -14,23 +12,19 @@ const P = styled.p`
 `
 
 const Map = ({
-    query,
     services,
-    lat,
-    lng,
     hoveredService,
     handleMapDrag
 }) => {
 
-    const history = useHistory()
     const mapInstance = useRef(null)
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_CLIENT_KEY
     })
-    const [initialBounds, setInitialBounds] = useState(false)
+    const [initialBoundsAreSet, setInitialBounds] = useState(false)
 
     useEffect(()=>{
-        if(isLoaded && !initialBounds){
+        if(isLoaded && !initialBoundsAreSet){
             const bounds = new window.google.maps.LatLngBounds()
             services.map(service => {
                 return bounds.extend(new window.google.maps.LatLng(
@@ -53,10 +47,6 @@ const Map = ({
                 streetViewControl: false
             }}
             zoom={16}
-            // center={{
-            //     lat: parseFloat(lat) || false, 
-            //     lng: parseFloat(lng) || false
-            // }}
             onDragEnd={()=>{
                 handleMapDrag(
                     mapInstance.current.state.map.center.lat(),
