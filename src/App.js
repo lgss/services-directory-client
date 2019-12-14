@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   [data-reach-dialog-overlay] {
-    background: hsla(0, 0%, 0%, 0.33);
+    background: hsla(0, 0%, 0%, 0.5);
     position: fixed;
     top: 0;
     right: 0;

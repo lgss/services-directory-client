@@ -1,6 +1,34 @@
 import React, { useState, useEffect } from "react"
+import styled from "styled-components"
+import theme from "../_theme"
 import { useHistory, useParams } from "react-router-dom"
 import { Dialog } from "@reach/dialog"
+import cross from "./cross.svg"
+
+const StyledDialog = styled(Dialog)`
+  position: relative;
+`
+
+const Headline = styled.h1`
+  color: ${theme.grey1};
+  margin-bottom: 10px;
+`
+
+const CloseButton = styled.button`
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  padding: 5px;
+  background: none;
+  cursor: pointer;
+  &:focus{
+    background: ${theme.focus};
+  }
+  img{
+    display: block;
+  }
+`
 
 const DetailDialog = ({
   location
@@ -25,11 +53,11 @@ const DetailDialog = ({
   }
 
   return(
-    <Dialog isOpen={true} onDismiss={close}>
-      <h1>{service.name || service.parentOrganisation}</h1>
+    <StyledDialog isOpen={true} onDismiss={close}>
+      <Headline>{service.name || service.parentOrganisation}</Headline>
       {JSON.stringify(service)}
-      <button onClick={close}>Close</button>
-    </Dialog>
+      <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
+    </StyledDialog>
   )
 }
 export default DetailDialog

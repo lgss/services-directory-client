@@ -162,6 +162,7 @@ const MapPage = ({
                 </ListArea>
                 <MapArea>
                     <Map
+                        search={location.search}
                         services={services}
                         hoveredService={hoveredService}
                         handleMapDrag={handleMapDrag}
