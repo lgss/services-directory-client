@@ -3,6 +3,7 @@ import styled from "styled-components"
 import theme from "../_theme"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api"
 import ServiceMarker from "./ServiceMarker"
+import Checkbox from "../Checkbox"
 
 const P = styled.p`
     color: ${theme.grey2};
@@ -78,7 +79,22 @@ const Map = ({
                 )}
             </GoogleMap>
             <Overlay>
-                <input
+                <Checkbox
+                    small
+                    name="search-as-i-move"
+                    checked={searchAsIMoveTheMap}
+                    onChange={e=>{
+                        if(e.target.checked){
+                            setSearchAsIMoveTheMap(true)
+                        } else {
+                            setSearchAsIMoveTheMap(false)
+                        }
+                    }}
+                >
+                    Search as I move the map?
+                </Checkbox>
+
+                {/* <input
                     type="checkbox"
                     id="search-as-i-move"
                     checked={searchAsIMoveTheMap}
@@ -90,7 +106,7 @@ const Map = ({
                         }
                     }}
                 />
-                <label htmlFor="search-as-i-move">Search as I move the map?</label>
+                <label htmlFor="search-as-i-move">Search as I move the map?</label> */}
             </Overlay>
         </>
     : 

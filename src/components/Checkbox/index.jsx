@@ -5,9 +5,9 @@ import tick from "./tick.svg"
 
 const Outer = styled.div`
     position: relative;
-    padding: 8px 0px;
-    margin-bottom: 15px;
-    padding-left: 50px;
+    padding: ${(props) => props.small ? "3px 0px" : "8px 0px"};
+    margin-bottom: ${(props) => props.small ? "0px" : "15px"};
+    padding-left: ${(props) => props.small ? "35px" : "50px"};;
     /* border: 1px solid red; */
 `
 
@@ -25,8 +25,8 @@ const Input = styled.input`
         position: absolute;
         content: "";
         display: block;
-        height: 25px;
-        width: 25px;
+        height: ${(props) => props.small ? "15px" : "25px"};
+        width: ${(props) => props.small ? "15px" : "25px"};
         left: 5px;
         top: 5px;
         background-image: url(${tick});
@@ -42,9 +42,9 @@ const Label = styled.label`
     &:before{
         content: "";
         display: inline-block;
-        margin-right: 10px;
-        height: 32px;
-        width: 32px;
+        margin-right: ${(props) => props.small ? "7px" : "10px"};
+        height: ${(props) => props.small ? "20px" : "32px"};
+        width: ${(props) => props.small ? "20px" : "32px"};
         border: 2px solid ${theme.grey1};
         position: absolute;
         left: 0px;
@@ -57,10 +57,12 @@ const CheckboxItem = ({
     name,
     children,
     onChange,
-    checked
+    checked,
+    small
 }) =>
-    <Outer>
+    <Outer small={small}>
         <Input 
+            small={small}
             type="checkbox" 
             name={name} 
             value={value}
@@ -70,6 +72,7 @@ const CheckboxItem = ({
             checked={checked}
         />
         <Label 
+            small={small}
             htmlFor={`${name}-${value}`}
         >
             {children}
