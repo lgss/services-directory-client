@@ -11,6 +11,16 @@ const P = styled.p`
     opacity: 0.4;
 `
 
+const Overlay = styled.div`
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    color: ${theme.grey1};
+`
+
 const Map = ({
     services,
     hoveredService,
@@ -22,6 +32,7 @@ const Map = ({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_CLIENT_KEY
     })
     const [initialBoundsAreSet, setInitialBounds] = useState(false)
+    const [searchAsIMoveTheMap, setSearchAsIMoveTheMap] = useState(true)
 
     useEffect(()=>{
         if(isLoaded && services.length > 0 && !initialBoundsAreSet){
@@ -39,29 +50,49 @@ const Map = ({
     }, [services])
 
     return isLoaded ? 
-        <GoogleMap 
-            mapContainerClassName="list-map"
-            ref={mapInstance}
-            options={{
-                mapTypeControl: false,
-                streetViewControl: false
-            }}
-            zoom={16}
-            onDragEnd={()=>{
-                handleMapDrag(
-                    mapInstance.current.state.map.center.lat(),
-                    mapInstance.current.state.map.center.lng()
-                )
-            }}
-        > 
-            {services.map(service=>
-                <ServiceMarker
-                    key={service.assetId} 
-                    service={service} 
-                    hoveredService={hoveredService}
-                />    
-            )}
-        </GoogleMap>
+        <>
+            <GoogleMap 
+                mapContainerClassName="list-map"
+                ref={mapInstance}
+                options={{
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                    fullscreenControl: false
+                }}
+                zoom={16}
+                onDragEnd={()=>{
+                    if(searchAsIMoveTheMap){
+                        handleMapDrag(
+                            mapInstance.current.state.map.center.lat(),
+                            mapInstance.current.state.map.center.lng()
+                        )
+                    }
+                }}
+            > 
+                {services.map(service=>
+                    <ServiceMarker
+                        key={service.assetId} 
+                        service={service} 
+                        hoveredService={hoveredService}
+                    />    
+                )}
+            </GoogleMap>
+            <Overlay>
+                <input
+                    type="checkbox"
+                    id="search-as-i-move"
+                    checked={searchAsIMoveTheMap}
+                    onChange={e=>{
+                        if(e.target.checked){
+                            setSearchAsIMoveTheMap(true)
+                        } else {
+                            setSearchAsIMoveTheMap(false)
+                        }
+                    }}
+                />
+                <label htmlFor="search-as-i-move">Search as I move the map?</label>
+            </Overlay>
+        </>
     : 
         <P>Map loading...</P>
 }

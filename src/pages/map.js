@@ -41,6 +41,7 @@ const MapArea = styled.div`
     @media screen and (min-width: 700px){
         display: block;
         flex: 1;
+        position: relative;
     }
 `
 
@@ -86,7 +87,7 @@ const MapPage = ({
                 let data1 = await res1.json()
                 query.lat = data1.results[0].geometry.location.lat
                 query.lng = data1.results[0].geometry.location.lng
-                history.push(`/map?${queryString.stringify(query)}`)
+                history.push(`/services?${queryString.stringify(query)}`)
             }
             let res2 = await fetch(`${process.env.REACT_APP_API_HOST}/api/services?${queryString.stringify(query)}`)
             let data2 = await res2.json()
@@ -104,18 +105,18 @@ const MapPage = ({
         query.lat = lat
         query.lng = lng
         query.page = 1
-        history.push(`/map?${queryString.stringify(query)}`)
+        history.push(`/services?${queryString.stringify(query)}`)
     }
 
     const handleNextPage = () => {
         query.page = parseInt(currentPage) + 1
-        history.push(`/map?${queryString.stringify(query)}`)
+        history.push(`/services?${queryString.stringify(query)}`)
         // ...
     }
 
     const handlePrevPage = () => {
         query.page = parseInt(currentPage) - 1
-        history.push(`/map?${queryString.stringify(query)}`)
+        history.push(`/services?${queryString.stringify(query)}`)
         // ...
     }
 

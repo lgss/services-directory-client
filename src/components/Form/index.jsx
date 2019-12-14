@@ -41,11 +41,11 @@ const A = styled.a`
 const Form = () => {
     
     return(
-        <form method="get" action="/map">
+        <form method="get" action="/services">
             <InterestsQuestion/>
             <LocationQuestion/>
             <Button type="submit">See results</Button>
-            <p>Or, just <A href="/map">browse everything</A>.</p>
+            <p>Or, just <A href="/services">browse everything</A>.</p>
         </form>
     )
 }
