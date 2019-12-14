@@ -4,9 +4,26 @@ import theme from "../_theme"
 import { useHistory, useParams } from "react-router-dom"
 import { Dialog } from "@reach/dialog"
 import cross from "./cross.svg"
+import { prettyDistance } from "../../lib/utils"
 
 const StyledDialog = styled(Dialog)`
   position: relative;
+`
+const Header = styled.header`
+  padding: 25px;
+  @media screen and (min-width: 700px){
+      padding: 45px;
+    }
+`
+
+const Tag = styled.strong`
+    display: inline-block;
+    font-size: 0.95rem;
+    color: white;
+    background: ${theme.blue};
+    padding: 0px 5px;
+    text-transform: capitalize;
+    margin-right: 15px;
 `
 
 const Headline = styled.h1`
@@ -54,8 +71,18 @@ const DetailDialog = ({
 
   return(
     <StyledDialog isOpen={true} onDismiss={close}>
-      <Headline>{service.name || service.parentOrganisation}</Headline>
+      <Header>
+        <Headline>{service.name || service.parentOrganisation}</Headline>
+        <Tag>{service.category}</Tag>
+        {service.name && service.parentOrganisation}
+      </Header>
+
+      {/* DetailMap */}
+      {/* Checklists */}
+      
+
       {JSON.stringify(service)}
+
       <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
     </StyledDialog>
   )
