@@ -12,6 +12,9 @@ const Outer = styled.section`
     @media screen and (min-width: 600px){
         padding: 250px 0px 10px 0px;
     }
+    @media screen and (min-width: 1600px){
+        padding: 300px 0px 10px 0px;
+    }
 `
 
 const Inner = styled.div`

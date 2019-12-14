@@ -99,6 +99,7 @@ const MapPage = ({
             setReloading(false)
         }
         fetchServices()
+        document.documentElement.scrollTop = 0
         listInstance.current.scrollTop = 0
     // eslint-disable-next-line
     }, [location.search])
