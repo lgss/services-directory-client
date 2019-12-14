@@ -41,7 +41,6 @@ const MapArea = styled.div`
     @media screen and (min-width: 700px){
         display: block;
         flex: 1;
-        /* padding: 15px 15px 15px px; */
     }
 `
 
@@ -101,6 +100,21 @@ const MapPage = ({
     // eslint-disable-next-line
     }, [location.search])
 
+    const handleMapDrag = (lat, lng) => {
+        query.lat = lat
+        query.lng = lng
+        query.page = 1
+        history.push(`/map?${queryString.stringify(query)}`)
+    }
+
+    const handleNextPage = () => {
+        // ...
+    }
+
+    const handlePrevPage = () => {
+        // ...
+    }
+
     return(
         <Layout fullPage>
             <Nav></Nav>
@@ -108,7 +122,6 @@ const MapPage = ({
                 <ListArea 
                     ref={listInstance} 
                     reloading={reloading} 
-                    // ariaLive="polite"
                 >
                     <CardList>
                         {services.map(service =>
@@ -125,12 +138,6 @@ const MapPage = ({
                         )}
                     </CardList>
                     {services.length < 1 && <P>Loading results...</P>}
-
-                    {/* <Pagination 
-                        currentPage={currentPage}
-                        setCurrentPage={setCurrentPage}
-                        totalPages={totalPages}
-                    /> */}
                 </ListArea>
                 <MapArea>
                     <Map
@@ -139,6 +146,7 @@ const MapPage = ({
                         hoveredService={hoveredService}
                         lat={query.lat}
                         lng={query.lng}
+                        handleMapDrag={handleMapDrag}
                     />
                 </MapArea>
             </ResultsArea>

@@ -18,7 +18,8 @@ const Map = ({
     services,
     lat,
     lng,
-    hoveredService
+    hoveredService,
+    handleMapDrag
 }) => {
 
     const history = useHistory()
@@ -28,17 +29,10 @@ const Map = ({
     })
     const [initialBounds, setInitialBounds] = useState(false)
 
-    // console.log(initialBounds)
-    // console.log(isLoaded)
-
     useEffect(()=>{
-
-        // console.log(isLoaded)
-
         if(isLoaded && !initialBounds){
             const bounds = new window.google.maps.LatLngBounds()
             services.map(service => {
-                console.log(service)
                 return bounds.extend(new window.google.maps.LatLng(
                     service.geo.coordinates[1],
                     service.geo.coordinates[0]
@@ -50,13 +44,6 @@ const Map = ({
     // eslint-disable-next-line
     }, [services])
 
-    const handleDrag = () => {
-        query.lat = mapInstance.current.state.map.center.lat()
-        query.lng = mapInstance.current.state.map.center.lng()
-        query.page = 1
-        history.push(`/map?${queryString.stringify(query)}`)
-    }
-
     return isLoaded ? 
         <GoogleMap 
             mapContainerClassName="list-map"
@@ -66,11 +53,16 @@ const Map = ({
                 streetViewControl: false
             }}
             zoom={16}
-            center={{
-                lat: parseFloat(lat), 
-                lng: parseFloat(lng)
+            // center={{
+            //     lat: parseFloat(lat) || false, 
+            //     lng: parseFloat(lng) || false
+            // }}
+            onDragEnd={()=>{
+                handleMapDrag(
+                    mapInstance.current.state.map.center.lat(),
+                    mapInstance.current.state.map.center.lng()
+                )
             }}
-            onDragEnd={handleDrag}
         > 
             {services.map(service=>
                 <ServiceMarker
