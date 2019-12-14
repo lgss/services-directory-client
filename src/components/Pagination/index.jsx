@@ -1,8 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
-// import { useHistory } from "react-router-dom"
-// import queryString from "query-string"
+
+const Outer = styled.div`
+    margin-bottom: 50px;
+`
 
 const NextButton = styled.button`
     background: none;
@@ -18,7 +20,8 @@ const NextButton = styled.button`
     &:hover{
         filter: brightness(1.3)
     }
-    &:focus{
+    &:focus, &:active{
+        filter: brightness(1);
         outline: 3px solid ${theme.focus};
     }
     @media screen and (min-width: 700px){
@@ -41,7 +44,7 @@ const PrevButton = styled.button`
     &:hover{
         text-decoration: none;
     }
-    &:focus{
+    &:focus, &:active{
         color: ${theme.grey1};
         background: ${theme.focus};
         outline: 3px solid ${theme.focus};
@@ -62,10 +65,10 @@ const Pagination = ({
     handlePrevPage,
     services
 }) =>
-    <>
+    <Outer>
         {currentPage === 1 && <P>Showing nearest {services.length} results</P>}
         {(currentPage < totalPages) && <NextButton onClick={handleNextPage}>Next page</NextButton>}
         {(currentPage > 1) && <PrevButton onClick={handlePrevPage}>Previous page</PrevButton>}
-    </>
+    </Outer>
 
 export default Pagination

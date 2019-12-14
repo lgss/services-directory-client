@@ -23,7 +23,7 @@ const ResultsArea = styled.section`
 `
 
 const ListArea = styled.div`
-    padding: 15px 15px 50px 15px;
+    padding: 15px;
     opacity: ${props => props.reloading ? "0.4" : "1"};
     pointer-events: ${props => props.reloading ? "none" : "inherit"};
     @media screen and (min-width: 700px){
@@ -130,28 +130,30 @@ const MapPage = ({
                     {services.length < 1 ?
                         <P>Loading results...</P>
                         :
-                        <CardList>
-                            {services.map(service =>
-                                <Card 
-                                    {...service} 
-                                    key={service.assetId}
-                                    onMouseEnter={()=>{
-                                        setHoveredService(service.assetId)
-                                    }}
-                                    onMouseLeave={()=>{
-                                        setHoveredService(false)
-                                    }}
-                                />
-                            )}
-                        </CardList>
+                        <>
+                            <CardList>
+                                {services.map(service =>
+                                    <Card 
+                                        {...service} 
+                                        key={service.assetId}
+                                        onMouseEnter={()=>{
+                                            setHoveredService(service.assetId)
+                                        }}
+                                        onMouseLeave={()=>{
+                                            setHoveredService(false)
+                                        }}
+                                    />
+                                )}
+                            </CardList>
+                            <Pagination
+                                services={services}
+                                currentPage={parseInt(currentPage)}
+                                totalPages={parseInt(totalPages)}
+                                handleNextPage={handleNextPage}
+                                handlePrevPage={handlePrevPage}
+                            />
+                        </>
                     }
-                    <Pagination
-                        services={services}
-                        currentPage={parseInt(currentPage)}
-                        totalPages={parseInt(totalPages)}
-                        handleNextPage={handleNextPage}
-                        handlePrevPage={handlePrevPage}
-                    />
                 </ListArea>
                 <MapArea>
                     <Map

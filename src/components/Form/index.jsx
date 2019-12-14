@@ -18,7 +18,8 @@ const Button = styled.button`
     &:hover{
         filter: brightness(1.3)
     }
-    &:focus{
+    &:focus, &:active{
+        filter: brightness(1);
         outline: 3px solid ${theme.focus};
     }
     @media screen and (min-width: 600px){
@@ -44,7 +45,7 @@ const Form = () => {
             <InterestsQuestion/>
             <LocationQuestion/>
             <Button type="submit">See results</Button>
-            <p>Or, just <A href="/map">see everything</A>.</p>
+            <p>Or, just <A href="/map">browse everything</A>.</p>
         </form>
     )
 }
