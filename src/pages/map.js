@@ -82,7 +82,7 @@ const MapPage = ({
         setReloading(true)
         const fetchServices = async () => {
             // 1. Attempt to geocode location server-side if not explicitly provided
-            if(!parseFloat(query.lat) || !parseFloat(query.lng)){
+            if(query.location && !parseFloat(query.lat) && !parseFloat(query.lng)){
                 let res1 = await fetch(`${process.env.REACT_APP_API_HOST}/api/geocode?location=${query.location}`)
                 let data1 = await res1.json()
                 query.lat = data1.results[0].geometry.location.lat
