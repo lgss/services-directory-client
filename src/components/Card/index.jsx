@@ -77,11 +77,13 @@ const Card = ({
     description,
     category,
     distance,
+    search,
     ...props
 }) =>
     <Outer {...props}>
         <StyledLink to={{
-            pathname: `/services/${assetId}`
+            pathname: `/services/${assetId}`,
+            search: search
         }}>
             <Headline>{name || parentOrganisation}</Headline>
         </StyledLink>

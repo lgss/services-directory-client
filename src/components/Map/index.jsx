@@ -4,6 +4,7 @@ import theme from "../_theme"
 import { GoogleMap, useLoadScript } from "@react-google-maps/api"
 import ServiceMarker from "./ServiceMarker"
 import Checkbox from "../Checkbox"
+import { useHistory } from "react-router-dom"
 
 const P = styled.p`
     color: ${theme.grey2};
@@ -25,7 +26,8 @@ const Overlay = styled.div`
 const Map = ({
     services,
     hoveredService,
-    handleMapDrag
+    handleMapDrag,
+    search
 }) => {
 
     const mapInstance = useRef(null)
@@ -34,6 +36,7 @@ const Map = ({
     })
     const [initialBoundsAreSet, setInitialBounds] = useState(false)
     const [searchAsIMoveTheMap, setSearchAsIMoveTheMap] = useState(true)
+    const history = useHistory()
 
     useEffect(()=>{
         if(isLoaded && services.length > 0 && !initialBoundsAreSet){
@@ -75,6 +78,9 @@ const Map = ({
                         key={service.assetId} 
                         service={service} 
                         hoveredService={hoveredService}
+                        onClick={() => {
+                            history.push(`/services/${service.assetId}${search}`)
+                        }}
                     />    
                 )}
             </GoogleMap>
@@ -93,20 +99,6 @@ const Map = ({
                 >
                     Search as I move the map?
                 </Checkbox>
-
-                {/* <input
-                    type="checkbox"
-                    id="search-as-i-move"
-                    checked={searchAsIMoveTheMap}
-                    onChange={e=>{
-                        if(e.target.checked){
-                            setSearchAsIMoveTheMap(true)
-                        } else {
-                            setSearchAsIMoveTheMap(false)
-                        }
-                    }}
-                />
-                <label htmlFor="search-as-i-move">Search as I move the map?</label> */}
             </Overlay>
         </>
     : 

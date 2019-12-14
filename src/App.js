@@ -31,6 +31,34 @@ const GlobalStyle = createGlobalStyle`
   .list-map{
     height: 100%;
   }
+
+  :root {
+    --reach-dialog: 1;
+  }
+
+  [data-reach-dialog-overlay] {
+    background: hsla(0, 0%, 0%, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+  }
+
+  [data-reach-dialog-content] {
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: white;
+    padding: 2rem;
+    outline: none;
+    @media screen and (min-width: 700px){
+      margin: 10vh auto;
+      min-height: auto;
+    }
+  }
+
 `
 
 

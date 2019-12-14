@@ -5,9 +5,11 @@ import marker from "./marker.svg"
 
 const ServiceMarker = ({
     service,
-    hoveredService
+    hoveredService,
+    onClick
 }) => 
     <Marker
+        onClick={onClick}
         animation={window.google.maps.Animation.DROP}
         position={{
             lat: service.geo.coordinates[1] + (service.assetId/1500000),
