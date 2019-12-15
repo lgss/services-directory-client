@@ -6,6 +6,7 @@ import { Dialog } from "@reach/dialog"
 import cross from "./cross.svg"
 import DetailMap from "./DetailMap"
 import { prettyDays } from "../../lib/utils"
+import Checklists from "./Checklists"
 
 const StyledDialog = styled(Dialog)`
   position: relative;
@@ -157,6 +158,15 @@ const Disclaimer = styled.footer`
   p{
     margin-bottom: 10px;
   }
+  a{
+    &:hover{
+        text-decoration: none;
+    }
+    &:focus{
+        background: ${theme.focus};
+        outline: 1px solid ${theme.focus};
+    }
+  }
 `
 
 const DetailDialog = ({
@@ -206,21 +216,20 @@ const DetailDialog = ({
       <SummaryPanel>
         {service.url && <Button href={service.url}>Visit website</Button>}
         <p>{service.description}</p>
-
         <TwoColumns>
-          <Panel>
-            <Subheadline>When</Subheadline>
-            <p>{service.frequency}</p>
-            {service.days && <p>{prettyDays(service.days)}</p>}
-          </Panel>
-
+          {(service.frequency || (service.days && service.days.length > 0)) &&
+            <Panel>
+              <Subheadline>When</Subheadline>
+              <p>{service.frequency}</p>
+              {service.days && <p>{prettyDays(service.days)}</p>}
+            </Panel>
+          }
           <Panel>
             <Subheadline>Contact</Subheadline>
             {service.contactName && <p>{service.contactName}</p>}
             {service.phone && <p>{service.phone}</p>}
             {service.email && <p><a href={`mailto:${service.email}`}>{service.email}</a></p>}
           </Panel>
-
           <MobilePanel>
             <Subheadline><strong>Where</strong></Subheadline>
             <p>{service.venue}</p>
@@ -228,12 +237,16 @@ const DetailDialog = ({
             <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>
           </MobilePanel>
         </TwoColumns>
-
       </SummaryPanel>
-
+      <Checklists
+        ageGroups={service.ageGroups}
+        suitability={service.suitability}
+        accessibility={service.accessibility}
+        price={service.price}
+      />
       <Disclaimer>
         <p>We regularly check and update these community services, but can’t guarantee that they will always be accurate.</p>
-        <p>If anything here is out of date or missing, please let us know.</p>
+        <p>If anything here is out of date or missing, please <a href="#">let us know</a>.</p>
         <p>You may need a referral for some activities and groups. Contact the organiser if unsure.</p>
       </Disclaimer>
 
