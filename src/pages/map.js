@@ -135,11 +135,9 @@ const MapPage = ({
                         :
                         <>
                             <CardList>
-
-                                {countywideServices.map(service =>
-                                    <CountywideService service={service}/>
-                                )}
-
+                                {(countywideServices.length > 0 && currentPage === 1) &&
+                                    <CountywideService service={countywideServices[0]}/>
+                                }
                                 {services.map(service =>
                                     <Card 
                                         {...service} 

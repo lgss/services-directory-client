@@ -2,12 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
 
-const Outer = styled.div`
+const Outer = styled.li`
     margin-bottom: 20px;
     padding: 25px;
     background-color: #F5F1E0;
     border: 2px solid ${theme.focus};
     color: ${theme.grey1};
+    line-height: 1.4;
 `
 
 const Headline = styled.h3`
@@ -21,7 +22,7 @@ const A = styled.a`
     &:focus{
         color: ${theme.grey1};
         background: ${theme.focus};
-        outline: 1px solid ${theme.focus};
+        outline: 3px solid ${theme.focus};
     }
 `
 

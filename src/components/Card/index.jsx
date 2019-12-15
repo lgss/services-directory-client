@@ -49,6 +49,7 @@ const Headline = styled.h3`
 const Description = styled.p`
     color: ${theme.grey2};
     margin-bottom: 15px;
+    line-height: 1.4;
 `
 
 const Footer = styled.footer`
