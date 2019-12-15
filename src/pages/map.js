@@ -10,6 +10,7 @@ import Map from "../components/Map"
 import DetailDialog from "../components/DetailDialog"
 import Pagination from "../components/Pagination"
 import Filters from "../components/Filters"
+import CountywideService from "../components/CountywideService"
 
 const ResultsArea = styled.section`
     background-color: ${theme.grey5};
@@ -72,6 +73,8 @@ const MapPage = ({
     const [currentPage, setCurrentPage] = useState(null)
     const [totalPages, setTotalPages] = useState(null)
 
+    const [countywideServices, setCountywideServices] = useState([])
+
     const history = useHistory()
     const listInstance = useRef(null)
 
@@ -93,6 +96,7 @@ const MapPage = ({
             setTotalPages(data2.pages)
             setCurrentPage(query.page || 1)
             setServices(data2.results)
+            setCountywideServices(data2.countywideResults)
             setReloading(false)
         }
         fetchServices()
@@ -131,6 +135,11 @@ const MapPage = ({
                         :
                         <>
                             <CardList>
+
+                                {countywideServices.map(service =>
+                                    <CountywideService service={service}/>
+                                )}
+
                                 {services.map(service =>
                                     <Card 
                                         {...service} 
