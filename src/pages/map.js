@@ -114,13 +114,11 @@ const MapPage = ({
     const handleNextPage = () => {
         query.page = parseInt(currentPage) + 1
         history.push(`/services?${queryString.stringify(query)}`)
-        // ...
     }
 
     const handlePrevPage = () => {
         query.page = parseInt(currentPage) - 1
         history.push(`/services?${queryString.stringify(query)}`)
-        // ...
     }
 
     return(

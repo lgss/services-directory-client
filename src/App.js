@@ -7,7 +7,7 @@ import theme from "./components/_theme"
 
 const GlobalStyle = createGlobalStyle`
 
-  @font-face {
+  /* @font-face {
     font-family: Helvetica Neue;
     font-weight: normal;
     src: url(helveticaneue2-medium.woff);
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Helvetica Neue;
     font-weight: bold;
     src: url(helveticaneue-bold.woff);
-  }
+  } */
 
   *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif, sans-serif;
@@ -30,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
 
   .list-map{
     height: 100%;
+  }
+  .detail-map{
+    height: 250px;
   }
 
   :root {
@@ -47,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   [data-reach-dialog-content] {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     min-height: 100vh;
     background: white;

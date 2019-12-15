@@ -4,16 +4,18 @@ import theme from "../_theme"
 import { useHistory, useParams } from "react-router-dom"
 import { Dialog } from "@reach/dialog"
 import cross from "./cross.svg"
-import { prettyDistance } from "../../lib/utils"
+import DetailMap from "./DetailMap"
+import { prettyDays } from "../../lib/utils"
 
 const StyledDialog = styled(Dialog)`
   position: relative;
+  line-height: 1.4;
 `
 const Header = styled.header`
   padding: 25px;
   @media screen and (min-width: 700px){
-      padding: 45px;
-    }
+    padding: 45px;
+  }
 `
 
 const Tag = styled.strong`
@@ -47,6 +49,116 @@ const CloseButton = styled.button`
   }
 `
 
+const MapHolder = styled.section`
+  display: none;
+  @media screen and (min-width: 700px){
+    display: block;
+    position: relative;
+  }
+`
+
+const AddressPanel = styled.div`
+  display: none;
+  @media screen and (min-width: 700px){
+    display: block;
+    position: absolute;
+    background: white;
+    left: 30px;
+    top: 30px;
+    max-height: 190px;
+    padding: 25px;
+    max-width: 250px;
+    color: ${theme.grey1};
+  }
+  a{
+    &:hover{
+        text-decoration: none;
+    }
+    &:focus{
+        background: ${theme.focus};
+        outline: 1px solid ${theme.focus};
+    }
+  }
+`
+
+const Subheadline = styled.h3`
+  margin-bottom: 5px;
+`
+
+const SummaryPanel = styled.section`
+  padding: 25px;
+  color: ${theme.grey1};
+  @media screen and (min-width: 700px){
+    padding: 45px;
+  }
+`
+
+const TwoColumns = styled.div`
+  margin-top: 25px;
+  @media screen and (min-width: 700px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+  }
+`
+
+const Panel = styled.div`
+  margin-top: 20px;
+  a{
+    &:hover{
+        text-decoration: none;
+    }
+    &:focus{
+        background: ${theme.focus};
+        outline: 1px solid ${theme.focus};
+    }
+  }
+`
+
+const MobilePanel = styled(Panel)`
+  @media screen and (min-width: 700px){
+    display: none;
+  }
+`
+
+const Button = styled.a`
+    text-decoration: none;
+    text-align: center;
+    background: none;
+    color: ${theme.blue};
+    border: 2px solid ${theme.blue};
+    padding: 20px 65px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    &:hover{
+        filter: brightness(1.3)
+    }
+    &:focus, &:active{
+        filter: brightness(1);
+        outline: 3px solid ${theme.focus};
+    }
+    @media screen and (min-width: 700px){
+        display: inline-block;
+        width: auto;
+    }
+`
+
+const Disclaimer = styled.footer`
+  padding: 25px;
+  text-align: center;
+  color: ${theme.grey1};
+  @media screen and (min-width: 700px){
+    padding: 45px;
+  }
+  p{
+    margin-bottom: 10px;
+  }
+`
+
 const DetailDialog = ({
   location
 }) => {
@@ -70,18 +182,60 @@ const DetailDialog = ({
   }
 
   return(
-    <StyledDialog isOpen={true} onDismiss={close}>
+    <StyledDialog 
+      isOpen={true} 
+      onDismiss={close}
+      aria-label="Service details"
+    >
       <Header>
         <Headline>{service.name || service.parentOrganisation}</Headline>
         <Tag>{service.category}</Tag>
         {service.name && service.parentOrganisation}
       </Header>
 
-      {/* DetailMap */}
-      {/* Checklists */}
-      
+      <MapHolder>
+        {service && <DetailMap geo={service.geo}/>}
+        <AddressPanel>
+          <Subheadline><strong>Where</strong></Subheadline>
+          <p>{service.venue}</p>
+          <p>{service.area}</p>
+          <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>
+        </AddressPanel>
+      </MapHolder>
 
-      {JSON.stringify(service)}
+      <SummaryPanel>
+        {service.url && <Button href={service.url}>Visit website</Button>}
+        <p>{service.description}</p>
+
+        <TwoColumns>
+          <Panel>
+            <Subheadline>When</Subheadline>
+            <p>{service.frequency}</p>
+            {service.days && <p>{prettyDays(service.days)}</p>}
+          </Panel>
+
+          <Panel>
+            <Subheadline>Contact</Subheadline>
+            {service.contactName && <p>{service.contactName}</p>}
+            {service.phone && <p>{service.phone}</p>}
+            {service.email && <p><a href={`mailto:${service.email}`}>{service.email}</a></p>}
+          </Panel>
+
+          <MobilePanel>
+            <Subheadline><strong>Where</strong></Subheadline>
+            <p>{service.venue}</p>
+            <p>{service.area}</p>
+            <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>
+          </MobilePanel>
+        </TwoColumns>
+
+      </SummaryPanel>
+
+      <Disclaimer>
+        <p>We regularly check and update these community services, but can’t guarantee that they will always be accurate.</p>
+        <p>If anything here is out of date or missing, please let us know.</p>
+        <p>You may need a referral for some activities and groups. Contact the organiser if unsure.</p>
+      </Disclaimer>
 
       <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
     </StyledDialog>
