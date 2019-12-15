@@ -55,8 +55,7 @@ const LocationFilter = () => {
         query.location = selection
         query.lat = null
         query.lng = null
-        // Refreshing page rather than pushing to history object because the map won't re-centre on the new location otherwise
-        window.location = `/services?${queryString.stringify(query)}`
+        history.push(`/services?${queryString.stringify(query)}`)
         toggleDialog(false)
     }
     
