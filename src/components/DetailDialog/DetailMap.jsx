@@ -22,6 +22,7 @@ const Map = ({
     return isLoaded ? 
             <GoogleMap 
                 mapContainerClassName="detail-map"
+                clickableIcons={false}
                 options={{
                     mapTypeControl: false,
                     streetViewControl: false,
@@ -40,6 +41,7 @@ const Map = ({
                         lat: geo.coordinates[1],
                         lng: geo.coordinates[0]
                     }}
+                    clickable={false}
                     icon={{
                         url: marker,
                         optimized: false,

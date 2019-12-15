@@ -204,13 +204,17 @@ const DetailDialog = ({
       </Header>
 
       <MapHolder>
-        {service && <DetailMap geo={service.geo}/>}
-        <AddressPanel>
-          <Subheadline><strong>Where</strong></Subheadline>
-          <p>{service.venue}</p>
-          <p>{service.area}</p>
-          <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>
-        </AddressPanel>
+        {service && 
+          <>
+            <DetailMap geo={service.geo}/>
+            <AddressPanel>
+              <Subheadline><strong>Where</strong></Subheadline>
+              <p>{service.venue}</p>
+              <p>{service.area}</p>
+              <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>
+            </AddressPanel>
+          </>
+        }
       </MapHolder>
 
       <SummaryPanel>
