@@ -1,8 +1,9 @@
 import React from "react"
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
+import { GoogleMap, Marker } from "@react-google-maps/api"
 import styled from "styled-components"
 import theme from "../_theme"
 import marker from "../Map/activeMarker.svg"
+import { GoogleContextConsumer } from "../../contexts/googleContext"
 
 const P = styled.p`
     color: ${theme.grey2};
@@ -12,12 +13,9 @@ const P = styled.p`
 `
 
 const Map = ({
-    geo
+    geo,
+    isLoaded
 }) => {
-
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_CLIENT_KEY
-    })
 
     return isLoaded ? 
             <GoogleMap 
@@ -53,4 +51,11 @@ const Map = ({
         <P>Map loading...</P>
 }
 
-export default Map
+const WrappedMap = props =>
+    <GoogleContextConsumer>
+        {context =>
+            <Map isLoaded={context.isLoaded} {...props}/>
+        }
+    </GoogleContextConsumer>
+
+export default WrappedMap

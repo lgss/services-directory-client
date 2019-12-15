@@ -4,6 +4,7 @@ import IndexPage from "./pages/index"
 import MapPage from "./pages/map"
 import { createGlobalStyle } from "styled-components"
 import theme from "./components/_theme"
+import { GoogleContextProvider } from "./contexts/googleContext"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -63,12 +64,13 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-
 const App = () =>
-    <Router>
-      <GlobalStyle/>
-      <Route path="/" component={IndexPage} exact/>
-      <Route path="/services" component={MapPage}/>
-    </Router>
+    <GoogleContextProvider>
+      <Router>
+        <GlobalStyle/>
+        <Route path="/" component={IndexPage} exact/>
+        <Route path="/services" component={MapPage}/>
+      </Router>
+    </GoogleContextProvider>
 
 export default App

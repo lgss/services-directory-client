@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import styled from "styled-components"
 import theme from "../_theme"
-import { useLoadScript } from "@react-google-maps/api"
-
-const libs = ["places"]
+import { GoogleContextConsumer } from "../../contexts/googleContext"
 
 const Input = styled.input`
     margin-top: 20px;
@@ -18,19 +16,13 @@ const Input = styled.input`
 `
 
 const AutocompletePlacesInput = ({
+    onChange,
     value,
-    onChange
+    isLoaded
 }) => {
 
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_CLIENT_KEY,
-        libraries: libs
-    })
-
     const [latLng, setLatLng] = useState([0,0])
-
     const inputRef = useRef(false)
-
     let autocomplete = null
 
     useEffect(() => {
@@ -75,4 +67,12 @@ const AutocompletePlacesInput = ({
         </>
     )
 }
-export default AutocompletePlacesInput
+
+const WrappedInput = props =>
+    <GoogleContextConsumer>
+        {context =>
+            <AutocompletePlacesInput isLoaded={context.isLoaded} {...props}/>
+        }
+    </GoogleContextConsumer>
+
+export default WrappedInput
