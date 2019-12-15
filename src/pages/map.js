@@ -9,10 +9,7 @@ import Card from "../components/Card"
 import Map from "../components/Map"
 import DetailDialog from "../components/DetailDialog"
 import Pagination from "../components/Pagination"
-
-const Nav = styled.nav`
-    padding: 10px 15px;
-`
+import Filters from "../components/Filters"
 
 const ResultsArea = styled.section`
     background-color: ${theme.grey5};
@@ -123,7 +120,7 @@ const MapPage = ({
 
     return(
         <Layout fullPage>
-            <Nav></Nav>
+            <Filters/>
             <ResultsArea>
                 <ListArea 
                     ref={listInstance} 

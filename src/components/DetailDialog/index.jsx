@@ -13,6 +13,7 @@ const StyledDialog = styled(Dialog)`
   line-height: 1.4;
   color: ${theme.grey1};
 `
+
 const Header = styled.header`
   padding: 25px;
   @media screen and (min-width: 700px){
@@ -66,7 +67,8 @@ const AddressPanel = styled.div`
     background: white;
     left: 30px;
     top: 30px;
-    max-height: 190px;
+    bottom: 30px;
+    /* height: 190px; */
     padding: 25px;
     max-width: 250px;
   }

@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   .detail-map{
-    height: 250px;
+    min-height: 250px;
   }
 
   :root {
