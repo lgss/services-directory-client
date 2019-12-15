@@ -1,13 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import theme from "../_theme"
 import LocationFilter from "./LocationFilter"
-// import Filter from "./Filter"
-// import ShareDialog from "../ShareDialog"
+import Filter from "./Filter"
 import config from "../../_config"
 
 const Outer = styled.section`
-    padding: 15px;
+    padding: 20px 15px;
 `
 
 const Inner = styled.div`
@@ -21,15 +19,10 @@ const Filters = () =>
     <Outer>
         <Inner>
             <LocationFilter/>
-            {/* <Filter
+            <Filter
                 label="Interests"
                 name="category"
                 options={config.interestsOptions}
-            />
-            <Filter
-                label="Kinds of support"
-                name="keywords"
-                options={config.supportOptions}
             />
             <Filter
                 label="When you're free"
@@ -45,7 +38,7 @@ const Filters = () =>
                 label="Accessibility"
                 name="accessibility"
                 options={config.accessibilityOptions}
-            /> */}
+            />
             {/* <ShareDialog/> */}
         </Inner>
     </Outer>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect }  from "react"
 import Checkbox from "../Checkbox"
+import { useHistory } from "react-router-dom"
+import queryString from "query-string"
 // import Router from "next/router"
 import cross from "../DetailDialog/cross.svg"
 import {
@@ -22,14 +24,17 @@ const Filter = ({
 
     const [dialogOpen, toggleDialog] = useState(false)
     const [selection, changeSelection] = useState([]) 
+    const history = useHistory()
+
+    const query = queryString.parse(history.location.search)
 
     useEffect(()=>{
         setSelectionFromQuery()
     },[])
 
     const setSelectionFromQuery = () =>{
-        if(Router.query[name]){
-            changeSelection([].concat(Router.query[name])) 
+        if(query[name]){
+            changeSelection([].concat(query[name]))
         } else {
             changeSelection([]) 
         }
@@ -56,13 +61,8 @@ const Filter = ({
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        Router.push({
-            pathname: "/recommendations",
-            query: {
-                ...Router.query,
-                [name]: selection
-            }
-        })
+        query[name] = selection
+        history.push(`/services?${queryString.stringify(query)}`)
         toggleDialog(false)
     }
 
