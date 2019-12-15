@@ -6,7 +6,7 @@ import arrow from "./arrow-down.svg"
 export const OpenButton = styled.button`
     background: none;
     border: none;
-    /* padding: 5px; */
+    padding: 5px 0px;
     font-size: 1em;
     color: ${theme.grey1};
     cursor: pointer;

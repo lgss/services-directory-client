@@ -5,7 +5,7 @@ import Filter from "./Filter"
 import config from "../../_config"
 
 const Outer = styled.section`
-    padding: 20px 15px;
+    padding: 15px 15px;
 `
 
 const Inner = styled.div`

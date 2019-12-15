@@ -68,7 +68,6 @@ const AddressPanel = styled.div`
     left: 30px;
     top: 30px;
     bottom: 30px;
-    /* height: 190px; */
     padding: 25px;
     max-width: 250px;
   }
@@ -207,7 +206,7 @@ const DetailDialog = ({
           <>
             <DetailMap geo={service.geo}/>
             <AddressPanel>
-              <Subheadline><strong>Where</strong></Subheadline>
+              <Subheadline>Where</Subheadline>
               <p>{service.venue}</p>
               <p>{service.area}</p>
               <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>
