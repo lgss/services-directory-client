@@ -30,6 +30,7 @@ const LocationFilter = () => {
 
     useEffect(()=>{
         setSelectionFromQuery()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const setSelectionFromQuery = () =>{
@@ -69,6 +70,7 @@ const LocationFilter = () => {
                 Location
             </OpenButton>
             <StyledDialog
+                aria-label="Location filter"
                 isOpen={dialogOpen}
                 className="location-dialog"
                 onDismiss={closeWithoutSaving}

@@ -28,10 +28,6 @@ const Filter = ({
 
     const query = queryString.parse(history.location.search)
 
-    useEffect(()=>{
-        setSelectionFromQuery()
-    },[])
-
     const setSelectionFromQuery = () =>{
         if(query[name]){
             changeSelection([].concat(query[name]))
@@ -39,6 +35,11 @@ const Filter = ({
             changeSelection([]) 
         }
     }
+
+    useEffect(()=>{
+        setSelectionFromQuery()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     const closeWithoutSaving = () => {
         setSelectionFromQuery()
@@ -76,6 +77,7 @@ const Filter = ({
                 {label}
             </OpenButton>
             <StyledDialog
+                aria-label={`${label}-filter`}
                 isOpen={dialogOpen}
                 className={`${label}-dialog`}
                 onDismiss={closeWithoutSaving}
