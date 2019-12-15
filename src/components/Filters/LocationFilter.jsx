@@ -55,8 +55,7 @@ const LocationFilter = () => {
         query.location = selection
         query.lat = null
         query.lng = null
-        history.push(`/services?${queryString.stringify(query)}`)
-        toggleDialog(false)
+        window.location = `/services?${queryString.stringify(query)}`
     }
     
     return(
