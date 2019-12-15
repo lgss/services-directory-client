@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import Form from "../components/Form"
 
-const ContentArea = styled.main`
+const ContentArea = styled.div`
     max-width: ${theme.maxWidth};
     margin: 0px auto;
     padding: 60px 15px;
