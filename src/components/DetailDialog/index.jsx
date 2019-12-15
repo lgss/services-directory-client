@@ -11,6 +11,7 @@ import Checklists from "./Checklists"
 const StyledDialog = styled(Dialog)`
   position: relative;
   line-height: 1.4;
+  color: ${theme.grey1};
 `
 const Header = styled.header`
   padding: 25px;
@@ -30,7 +31,6 @@ const Tag = styled.strong`
 `
 
 const Headline = styled.h1`
-  color: ${theme.grey1};
   margin-bottom: 10px;
 `
 
@@ -69,7 +69,6 @@ const AddressPanel = styled.div`
     max-height: 190px;
     padding: 25px;
     max-width: 250px;
-    color: ${theme.grey1};
   }
   a{
     &:hover{
@@ -88,7 +87,6 @@ const Subheadline = styled.h3`
 
 const SummaryPanel = styled.section`
   padding: 25px;
-  color: ${theme.grey1};
   @media screen and (min-width: 700px){
     padding: 45px;
   }
@@ -151,7 +149,6 @@ const Button = styled.a`
 const Disclaimer = styled.footer`
   padding: 25px;
   text-align: center;
-  color: ${theme.grey1};
   @media screen and (min-width: 700px){
     padding: 45px;
   }
