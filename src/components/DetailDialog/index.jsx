@@ -56,6 +56,8 @@ const MapHolder = styled.section`
   @media screen and (min-width: 700px){
     display: block;
     position: relative;
+    padding: 30px;
+    min-height: 250px
   }
 `
 
@@ -63,12 +65,10 @@ const AddressPanel = styled.div`
   display: none;
   @media screen and (min-width: 700px){
     display: block;
-    position: absolute;
+    position: relative;
     background: white;
-    left: 30px;
-    top: 30px;
-    bottom: 30px;
     padding: 25px;
+    width: 100%;
     max-width: 250px;
   }
   a{
@@ -233,7 +233,7 @@ const DetailDialog = ({
             {service.email && <p><a href={`mailto:${service.email}`}>{service.email}</a></p>}
           </Panel>
           <MobilePanel>
-            <Subheadline><strong>Where</strong></Subheadline>
+            <Subheadline>Where</Subheadline>
             <p>{service.venue}</p>
             <p>{service.area}</p>
             <p><a href={`https://www.google.com/maps/search/${service.postcode}`}>{service.postcode}</a></p>

@@ -33,7 +33,11 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   .detail-map{
-    min-height: 250px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
   }
 
   :root {
