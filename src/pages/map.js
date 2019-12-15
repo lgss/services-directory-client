@@ -127,7 +127,7 @@ const MapPage = ({
                     reloading={reloading} 
                 >
                     {services.length < 1 ?
-                        <P>Loading results...</P>
+                        <>{totalPages === 0 ? <P>No results to show. Try widening your search.</P> : <P>Loading results...</P>}</>
                         :
                         <>
                             <CardList>
