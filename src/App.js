@@ -5,6 +5,7 @@ import MapPage from "./pages/map"
 import { createGlobalStyle } from "styled-components"
 import theme from "./components/_theme"
 import { GoogleContextProvider } from "./contexts/googleContext"
+import { ShortlistContextProvider } from "./contexts/shortlistContext"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -69,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () =>
+  <ShortlistContextProvider>
     <GoogleContextProvider>
       <Router>
         <GlobalStyle/>
@@ -76,5 +78,6 @@ const App = () =>
         <Route path="/services" component={MapPage}/>
       </Router>
     </GoogleContextProvider>
+  </ShortlistContextProvider>
 
 export default App

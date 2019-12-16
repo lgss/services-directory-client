@@ -3,6 +3,7 @@ import styled from "styled-components"
 import theme from "../_theme"
 import { Link } from "react-router-dom"
 import { truncate, prettyDistance } from "../../lib/utils"
+import { ShortlistContextConsumer } from "../../contexts/shortlistContext"
 
 const Outer = styled.li`
     background-color: white;
@@ -79,6 +80,8 @@ const Card = ({
     category,
     distance,
     search,
+    isInShortlist,
+    addToShortlist,
     ...props
 }) =>
     <Outer {...props}>
@@ -93,6 +96,21 @@ const Card = ({
             <Tag>{category}</Tag>
             <Meta>{prettyDistance(distance)}</Meta>
         </Footer>
+
+        {isInShortlist(assetId) ? "yes" : "no"}
+        <button onClick={()=>{addToShortlist(assetId)}}>add</button>
+        
     </Outer>
 
-export default Card
+const WrappedCard = (props) => 
+    <ShortlistContextConsumer>
+        { context =>
+            <Card 
+                {...props}
+                isInShortlist={context.isInShortlist}
+                addToShortlist={context.addToShortlist}
+            />
+        }
+    </ShortlistContextConsumer>
+
+export default WrappedCard

@@ -17,6 +17,10 @@ export const ShortlistContextProvider = ({
         return JSON.parse(window.localStorage.getItem("shortlist"))
     }
 
+    const isInShortlist = (assetId) => {
+        return getShortlist().includes(assetId)
+    }
+
     const addToShortlist = (assetId) => {
         initialiseShortlist()
         let shortlist = getShortlist()
@@ -31,13 +35,13 @@ export const ShortlistContextProvider = ({
         window.localStorage.setItem("shortlist", JSON.stringify(filteredShortlist))
     }
 
-
     return (
         <ShortlistContext.Provider
             value={{
                 shortlist: getShortlist(),
                 addToShortlist: addToShortlist,
-                removeFromShortlist: removeFromShortlist
+                removeFromShortlist: removeFromShortlist,
+                isInShortlist: isInShortlist
             }}
         >
             {children}
