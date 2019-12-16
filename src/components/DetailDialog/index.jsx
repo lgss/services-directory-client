@@ -45,6 +45,7 @@ const CloseButton = styled.button`
   cursor: pointer;
   &:focus{
     background: ${theme.focus};
+    outline: 1px solid ${theme.focus};
   }
   img{
     display: block;

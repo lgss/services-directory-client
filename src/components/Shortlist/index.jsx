@@ -16,6 +16,9 @@ const Button = styled.button`
     color: ${theme.grey1};
     cursor: pointer;
     border: none;
+    &:focus{
+        outline: 4px solid ${theme.focus};
+    }
 `
 
 const Headline = styled.h2`

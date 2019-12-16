@@ -21,6 +21,9 @@ const Button = styled.button`
     cursor: pointer;
     background: none;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover{
         background: ${theme.paleOrange};
     }

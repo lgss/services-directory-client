@@ -13,7 +13,7 @@ export const OpenButton = styled.button`
     margin-right: 20px;
     font-weight: ${(props) => props.active ? "bold" : "normal"};
     &:focus{
-        outline: none;
+        outline: 3px solid ${theme.focus};
         background: ${theme.focus};               
     }
     &:after{
