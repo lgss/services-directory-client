@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 const ShortlistContext = React.createContext()
 
@@ -6,42 +6,40 @@ export const ShortlistContextProvider = ({
     children
 }) => {
 
+    const [ shortlist, setShortlist ] = useState([])
+
+    // unbake
+    useEffect(()=>{
+        initialiseShortlist()
+        setShortlist(JSON.parse(window.localStorage.getItem("shortlist")))
+    }, [])
+
+    // bake
+    useEffect(()=>{
+        initialiseShortlist()
+        window.localStorage.setItem("shortlist", JSON.stringify(shortlist))
+    }, [shortlist])
+
     const initialiseShortlist = () => {
         if(!window.localStorage.getItem("shortlist")){
             window.localStorage.setItem("shortlist", JSON.stringify([]))
         }
     }
 
-    const getShortlist = () => {
-        initialiseShortlist()
-        return JSON.parse(window.localStorage.getItem("shortlist"))
-    }
-
-    const isInShortlist = (assetId) => {
-        return getShortlist().includes(assetId)
-    }
-
-    const addToShortlist = (assetId) => {
-        initialiseShortlist()
-        let shortlist = getShortlist()
-        shortlist.push(assetId)
-        window.localStorage.setItem("shortlist", JSON.stringify(shortlist))
+    const addToShortlist = async (assetId) => {
+        await setShortlist([...shortlist, assetId])
     }
 
     const removeFromShortlist = (assetId) => {
-        initialiseShortlist()
-        let shortlist = getShortlist()
-        let filteredShortlist = shortlist.filter(item => item !== assetId)
-        window.localStorage.setItem("shortlist", JSON.stringify(filteredShortlist))
+        setShortlist(shortlist.filter(item => item !== assetId))
     }
 
     return (
         <ShortlistContext.Provider
             value={{
-                shortlist: getShortlist(),
+                shortlist: shortlist,
                 addToShortlist: addToShortlist,
-                removeFromShortlist: removeFromShortlist,
-                isInShortlist: isInShortlist
+                removeFromShortlist: removeFromShortlist
             }}
         >
             {children}

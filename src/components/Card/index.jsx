@@ -80,8 +80,9 @@ const Card = ({
     category,
     distance,
     search,
-    isInShortlist,
+    shortlist,
     addToShortlist,
+    removeFromShortlist,
     ...props
 }) =>
     <Outer {...props}>
@@ -97,8 +98,14 @@ const Card = ({
             <Meta>{prettyDistance(distance)}</Meta>
         </Footer>
 
-        {isInShortlist(assetId) ? "yes" : "no"}
-        <button onClick={()=>{addToShortlist(assetId)}}>add</button>
+        {shortlist.includes(assetId) ? "yes" : "no"}
+        {shortlist.includes(assetId) ? 
+            <button onClick={()=>{removeFromShortlist(assetId)}}>remove</button>
+            : 
+            <button onClick={()=>{addToShortlist(assetId)}}>add</button>
+        }
+
+        
         
     </Outer>
 
@@ -107,8 +114,9 @@ const WrappedCard = (props) =>
         { context =>
             <Card 
                 {...props}
-                isInShortlist={context.isInShortlist}
+                shortlist={context.shortlist}
                 addToShortlist={context.addToShortlist}
+                removeFromShortlist={context.removeFromShortlist}
             />
         }
     </ShortlistContextConsumer>
