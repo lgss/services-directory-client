@@ -73,40 +73,34 @@ const Meta = styled.span`
 `
 
 const Card = ({
-    assetId,
-    name,
-    parentOrganisation,
-    description,
-    category,
-    distance,
     search,
     shortlist,
     addToShortlist,
     removeFromShortlist,
+    isInShortlist,
+    service,
     ...props
 }) =>
     <Outer {...props}>
         <StyledLink to={{
-            pathname: `/services/${assetId}`,
+            pathname: `/services/${service.assetId}`,
             search: search
         }}>
-            <Headline>{name || parentOrganisation}</Headline>
+            <Headline>{service.name || service.parentOrganisation}</Headline>
         </StyledLink>
-        <Description>{truncate(description, 15)}</Description>
+        <Description>{truncate(service.description, 15)}</Description>
         <Footer>
-            <Tag>{category}</Tag>
-            <Meta>{prettyDistance(distance)}</Meta>
+            <Tag>{service.category}</Tag>
+            <Meta>{prettyDistance(service.distance)}</Meta>
         </Footer>
 
-        {shortlist.includes(assetId) ? "yes" : "no"}
-        {shortlist.includes(assetId) ? 
-            <button onClick={()=>{removeFromShortlist(assetId)}}>remove</button>
+        {isInShortlist(service.assetId) ? "yes" : "no"}
+        {isInShortlist(service.assetId) ? 
+            <button onClick={()=>{removeFromShortlist(service.assetId)}}>remove</button>
             : 
-            <button onClick={()=>{addToShortlist(assetId)}}>add</button>
+            <button onClick={()=>{addToShortlist(service)}}>add</button>
         }
 
-        
-        
     </Outer>
 
 const WrappedCard = (props) => 
@@ -114,7 +108,7 @@ const WrappedCard = (props) =>
         { context =>
             <Card 
                 {...props}
-                shortlist={context.shortlist}
+                isInShortlist={context.isInShortlist}
                 addToShortlist={context.addToShortlist}
                 removeFromShortlist={context.removeFromShortlist}
             />

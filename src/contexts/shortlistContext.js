@@ -8,6 +8,8 @@ export const ShortlistContextProvider = ({
 
     const [ shortlist, setShortlist ] = useState([])
 
+    console.log(shortlist)
+
     // unbake
     useEffect(()=>{
         initialiseShortlist()
@@ -26,20 +28,27 @@ export const ShortlistContextProvider = ({
         }
     }
 
-    const addToShortlist = async (assetId) => {
-        await setShortlist([...shortlist, assetId])
+    const addToShortlist = (service) => {
+        setShortlist([...shortlist, service])
     }
 
     const removeFromShortlist = (assetId) => {
-        setShortlist(shortlist.filter(item => item !== assetId))
+        setShortlist(shortlist.filter(service => service.assetId !== assetId))
     }
+
+    const isInShortlist = (assetId) => {
+        return shortlist.filter(item => item.assetId === assetId).length > 0
+    }
+
+    window.isInShortlist = isInShortlist
 
     return (
         <ShortlistContext.Provider
             value={{
                 shortlist: shortlist,
                 addToShortlist: addToShortlist,
-                removeFromShortlist: removeFromShortlist
+                removeFromShortlist: removeFromShortlist,
+                isInShortlist: isInShortlist
             }}
         >
             {children}

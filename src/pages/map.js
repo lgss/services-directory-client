@@ -140,7 +140,7 @@ const MapPage = ({
                                 }
                                 {services.map(service =>
                                     <Card 
-                                        {...service} 
+                                        service={service}
                                         search={location.search}
                                         key={service.assetId}
                                         onMouseEnter={()=>{
