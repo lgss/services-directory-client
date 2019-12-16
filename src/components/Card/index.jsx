@@ -3,7 +3,7 @@ import styled from "styled-components"
 import theme from "../_theme"
 import { Link } from "react-router-dom"
 import { truncate, prettyDistance } from "../../lib/utils"
-import { ShortlistContextConsumer } from "../../contexts/shortlistContext"
+import ShortlistButton from "../ShortlistButton"
 
 const Outer = styled.li`
     background-color: white;
@@ -16,11 +16,7 @@ const Outer = styled.li`
         background: ${theme.activeCard};
     }
     &:hover{
-        background-color: #FFFBF4;
         box-shadow: 0px 4px 0px #F4E6C6;
-    }
-    &:focus-within{
-        box-shadow: 0 0 0 3px ${theme.focus};
     }
 `
 
@@ -38,6 +34,9 @@ const StyledLink = styled(Link)`
     }
     &:focus{
         outline: none;
+        &:after{
+            box-shadow: 0 0 0 3px ${theme.focus};
+        }
     }
 `
 
@@ -74,14 +73,9 @@ const Meta = styled.span`
 
 const Card = ({
     search,
-    shortlist,
-    addToShortlist,
-    removeFromShortlist,
-    isInShortlist,
-    service,
-    ...props
+    service
 }) =>
-    <Outer {...props}>
+    <Outer>
         <StyledLink to={{
             pathname: `/services/${service.assetId}`,
             search: search
@@ -92,27 +86,8 @@ const Card = ({
         <Footer>
             <Tag>{service.category}</Tag>
             <Meta>{prettyDistance(service.distance)}</Meta>
+            <ShortlistButton service={service}/>
         </Footer>
-
-        {isInShortlist(service.assetId) ? "yes" : "no"}
-        {isInShortlist(service.assetId) ? 
-            <button onClick={()=>{removeFromShortlist(service.assetId)}}>remove</button>
-            : 
-            <button onClick={()=>{addToShortlist(service)}}>add</button>
-        }
-
     </Outer>
 
-const WrappedCard = (props) => 
-    <ShortlistContextConsumer>
-        { context =>
-            <Card 
-                {...props}
-                isInShortlist={context.isInShortlist}
-                addToShortlist={context.addToShortlist}
-                removeFromShortlist={context.removeFromShortlist}
-            />
-        }
-    </ShortlistContextConsumer>
-
-export default WrappedCard
+export default Card

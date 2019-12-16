@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     background: white;
     outline: none;
+    z-index: 1;
     @media screen and (min-width: 700px){
       margin: 10vh auto;
       min-height: auto;

@@ -4,8 +4,8 @@ import theme from "../_theme"
 
 const Outer = styled.li`
     margin-bottom: 20px;
-    padding: 25px;
-    background-color: #F5F1E0;
+    padding: 20px 25px;
+    background-color: ${theme.paleOrange};
     border: 2px solid ${theme.focus};
     color: ${theme.grey1};
     line-height: 1.4;

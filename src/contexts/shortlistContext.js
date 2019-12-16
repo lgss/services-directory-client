@@ -8,8 +8,6 @@ export const ShortlistContextProvider = ({
 
     const [ shortlist, setShortlist ] = useState([])
 
-    console.log(shortlist)
-
     // unbake
     useEffect(()=>{
         initialiseShortlist()

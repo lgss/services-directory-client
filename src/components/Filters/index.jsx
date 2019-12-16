@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import LocationFilter from "./LocationFilter"
 import Filter from "./Filter"
+import Shortlist from "../Shortlist"
 import config from "../../_config"
 
 const Outer = styled.section`
@@ -40,6 +41,7 @@ const Filters = () =>
                 options={config.accessibilityOptions}
             />
             {/* <ShareDialog/> */}
+            <Shortlist/>
         </Inner>
     </Outer>
     

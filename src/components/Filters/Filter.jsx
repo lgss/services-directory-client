@@ -2,7 +2,6 @@ import React, { useState, useEffect }  from "react"
 import Checkbox from "../Checkbox"
 import { useHistory } from "react-router-dom"
 import queryString from "query-string"
-// import Router from "next/router"
 import cross from "../DetailDialog/cross.svg"
 import {
     StyledDialog,
