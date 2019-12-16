@@ -196,12 +196,12 @@ const DetailDialog = ({
       onDismiss={close}
       aria-label="Service details"
     >
+      <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
       <Header>
         <Headline>{service.name || service.parentOrganisation}</Headline>
         <Tag>{service.category}</Tag>
         {service.name && service.parentOrganisation}
       </Header>
-
       <MapHolder>
         {service && 
           <>
@@ -252,8 +252,6 @@ const DetailDialog = ({
         <p>If anything here is out of date or missing, please <a href="#">let us know</a>.</p>
         <p>You may need a referral for some activities and groups. Contact the organiser if unsure.</p>
       </Disclaimer>
-
-      <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
     </StyledDialog>
   )
 }
