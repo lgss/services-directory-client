@@ -16,7 +16,7 @@ import {
 const TextInput = styled.input`
 margin-top: 10px;
 font-size: 1em;
-border: 2px solid ${theme.darkText};
+border: 2px solid ${theme.grey1};
 padding: 10px;
 border-radius: 2px;
 display: block;
@@ -51,7 +51,8 @@ const Fieldset = styled.fieldset`
 
 const Alert = styled.span`
     padding: 10px;
-    background: ${theme.focus};
+    background-color: ${theme.paleOrange};
+    border: 2px solid ${theme.focus};
     display: block;
     border-radius: 2px;
     margin-bottom: 20px;

@@ -33,7 +33,8 @@ export const StyledDialog = styled(Dialog)`
     max-width: 500px;
     position: relative;
     padding: 0px;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2)
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    color: ${theme.grey1};
 `
 
 export const Inner = styled.fieldset`
