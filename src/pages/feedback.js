@@ -4,6 +4,7 @@ import theme from "../components/_theme"
 import Layout from "../components/Layout"
 import FeedbackHeader from "../components/FeedbackHeader"
 import FeedbackForm from "../components/FeedbackForm"
+import { Helmet } from "react-helmet"
 
 const Outer = styled.div`
     padding: 60px 15px;
@@ -20,6 +21,9 @@ const TwoThirdsColumn = styled.div`
 
 const IndexPage = () =>
     <Layout>
+        <Helmet>
+            <title>Give feedback | Buckinghamshire Council</title>
+        </Helmet>
         <FeedbackHeader/>
         <Outer>
             <ContentArea>

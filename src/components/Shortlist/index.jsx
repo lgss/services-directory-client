@@ -76,6 +76,7 @@ const Shortlist = ({
                             {(context.shortlist.length > 0) ? 
                                 context.shortlist.map(service =>
                                     <Card 
+                                        key={service.assetId}
                                         service={service}
                                         search={history.location.search}
                                     />

@@ -9,6 +9,7 @@ import { prettyDays } from "../../lib/utils"
 import Checklists from "./Checklists"
 import fetch from "isomorphic-unfetch"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet"
 
 const StyledDialog = styled(Dialog)`
   position: relative;
@@ -198,6 +199,9 @@ const DetailDialog = ({
       onDismiss={close}
       aria-label="Service details"
     >
+      <Helmet>
+        {(service.name || service.parentOrganisation) &&         <title>{`${service.name || service.parentOrganisation} | Buckinghamshire Council`}</title>}
+      </Helmet>
       <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
       <Header>
         <Headline>{service.name || service.parentOrganisation}</Headline>
