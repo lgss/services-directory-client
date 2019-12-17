@@ -1,30 +1,21 @@
 const generateHtml = require("./generateHtml")
 const pdf = require("html-pdf")
 
-exports.handler = async (event, context, callback) => {
-    try {
+exports.handler = (event, context, callback) => {
         let shortlist = JSON.parse(event.body)
-
-        await pdf.create(generateHtml(shortlist), {
+        pdf.create(generateHtml(shortlist), {
             format: "Letter",
             orientation: "portrait",
             border: "1in"
-        }).toBuffer(async (err, buffer) => {
-            await {
+        }).toBuffer((err, buffer) => {
+            if(err) callback(err)
+            callback(null, {
                 statusCode: 200,
                 headers: {
                     "Cache-Control": "no-cache",
                     "Content-Type": "application/pdf",
                 },
-                body: await Buffer.concat(buffer)
-            }
+                body: Buffer.toString("base64")
+            })
         })
-
-
-    } catch(err) {
-        return {
-            statusCode: 500,
-            body: err.toString()
-        }
-    }
 }
