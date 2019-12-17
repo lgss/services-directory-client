@@ -56,13 +56,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   [data-reach-dialog-content] {
-    max-width: 600px;
-    margin: 0 auto;
-    min-height: 100vh;
+    max-width: 85vw;
+    margin: 15vw auto;
     background: white;
     outline: none;
     z-index: 1;
     @media screen and (min-width: 700px){
+      max-width: 600px;
       margin: 10vh auto;
       min-height: auto;
     }

@@ -6,14 +6,16 @@ import filled from "./filled.svg"
 import { ShortlistContextConsumer } from "../../contexts/shortlistContext"
 
 const Outer = styled.div`
-    display: inline-block;
+    display: block;
     z-index: 0;
     position: relative;
-    /* margin-top: 10px; */
+    margin-top: 10px;
     @media screen and (min-width: 400px){
+        display: inline-block;
         position: absolute;
         right: 17px;
         bottom: 17px;
+        margin-top: 0px;
     }
 `
 
@@ -23,17 +25,20 @@ const Button = styled.button`
     height: 40px;
     width: 40px;
     cursor: pointer;
-    background: none;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: ${theme.paleOrange};
     &:hover{
         background: ${theme.paleOrange};
     }
     &:focus{
         outline: none;
         box-shadow: 0px 0px 0px 3px ${theme.focus};         
+    }
+    @media screen and (min-width: 400px){
+        background: none;
     }
 
 `
