@@ -1,5 +1,33 @@
-exports.handler = function(event, context, callback) {
-    // 1. Suck up the query string
-    // 2. Request data from the services API
-    // 3. Render and respond with a PDF for printing
+const generateHtml = require("./generateHtml")
+const pdf = require("html-pdf")
+
+exports.handler = (event, context, callback) => {
+    try {
+        let shortlist = JSON.parse(event.body)
+
+        let response
+
+        pdf.create(generateHtml(shortlist), {
+            format: "Letter",
+            orientation: "portrait",
+            border: "1in"
+        })
+            .toFile("./downloadable.pdf", function(err, buffer){
+                response = {
+                    statusCode: 200,
+                    headers: {
+                        "Cache-Control": "no-cache",
+                        "Content-Type": "application/pdf",
+                    },
+                    body: buffer
+                }
+            });
+
+        return response
+    } catch(err) {
+        return {
+            statusCode: 500,
+            body: e.toString()
+        }
+    }
 }

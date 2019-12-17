@@ -6,3 +6,9 @@
     from = "/*"
     to = "/index.html"
     status = 200
+
+[[redirects]]
+    from = "/print"
+    to = "/.netlify/functions/print"
+    status = 200
+    
