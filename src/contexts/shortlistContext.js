@@ -27,6 +27,7 @@ export const ShortlistContextProvider = ({
     }
 
     const addToShortlist = (service) => {
+        delete service["distance"]
         setShortlist([...shortlist, service])
     }
 

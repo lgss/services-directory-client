@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
 import { Link } from "react-router-dom"
-import { truncate, prettyDistance } from "../../lib/utils"
+import { truncate, prettyFeatures } from "../../lib/utils"
 import ShortlistButton from "../ShortlistButton"
 
 const Outer = styled.li`
@@ -54,11 +54,12 @@ const Description = styled.p`
 
 const Footer = styled.footer`
     line-height: 1.7;
+    margin-right: 35px;
 `
 
 const Tag = styled.strong`
     display: inline-block;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: white;
     background: ${theme.blue};
     padding: 0px 5px;
@@ -68,7 +69,7 @@ const Tag = styled.strong`
 
 const Meta = styled.span`
     color: ${theme.grey2};
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 `
 
 const Card = ({
@@ -85,7 +86,9 @@ const Card = ({
         <Description>{truncate(service.description, 15)}</Description>
         <Footer>
             <Tag>{service.category}</Tag>
-            <Meta>{prettyDistance(service.distance)}</Meta>
+            <Meta dangerouslySetInnerHTML={{
+                __html: prettyFeatures(service.distance, service.accessibility, service.days)
+            }}/>
             <ShortlistButton service={service}/>
         </Footer>
     </Outer>
