@@ -131,7 +131,7 @@ const Button = styled.a`
     background: none;
     color: ${theme.blue};
     border: 2px solid ${theme.blue};
-    padding: 20px 65px;
+    padding: 20px 40px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
@@ -148,6 +148,7 @@ const Button = styled.a`
     @media screen and (min-width: 700px){
         display: inline-block;
         width: auto;
+        padding: 20px 65px;
     }
 `
 
