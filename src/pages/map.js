@@ -12,6 +12,7 @@ import Pagination from "../components/Pagination"
 import Filters from "../components/Filters"
 import CountywideService from "../components/CountywideService"
 import fetch from "isomorphic-unfetch"
+import { Helmet } from "react-helmet"
 
 const ResultsArea = styled.section`
     background-color: ${theme.grey5};
@@ -126,6 +127,9 @@ const MapPage = ({
 
     return(
         <Layout fullPage>
+            <Helmet>
+                <title>Results | Buckinghamshire Council</title>
+            </Helmet>
             <Filters/>
             <ResultsArea>
                 <ListArea 

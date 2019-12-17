@@ -153,7 +153,7 @@ const Layout = ({
     <Outer fullPage={fullPage}>
         <Header>
             <HeaderContainer fullPage={fullPage}>
-                <Masthead href="/">
+                <Masthead href="https://www.buckscc.gov.uk">
                     <img src={masthead} alt="Buckinghamshire Council"/>
                 </Masthead>
                 <SearchForm
