@@ -6,11 +6,15 @@ import filled from "./filled.svg"
 import { ShortlistContextConsumer } from "../../contexts/shortlistContext"
 
 const Outer = styled.div`
-    display: block;
+    display: inline-block;
     z-index: 0;
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
+    position: relative;
+    /* margin-top: 10px; */
+    @media screen and (min-width: 400px){
+        position: absolute;
+        right: 17px;
+        bottom: 17px;
+    }
 `
 
 const Button = styled.button`

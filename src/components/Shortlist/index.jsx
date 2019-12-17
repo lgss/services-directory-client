@@ -11,11 +11,12 @@ import cross from "../DetailDialog/cross.svg"
 const Button = styled.button`
     display: inline-block;
     font-size: 0.95rem;
-    padding: 5px 7px;
+    padding: 5px 15px;
     background: ${theme.paleOrange};
     color: ${theme.grey1};
     cursor: pointer;
     border: none;
+    margin-right: 15px;
     &:focus{
         outline: 4px solid ${theme.focus};
     }
@@ -43,7 +44,6 @@ const NothingToShow = styled.p`
     margin: 30px 50px;
     text-align: center;
     color: ${theme.grey2};
-    opacity: 0.4;
 
 `
 
@@ -65,7 +65,7 @@ const Shortlist = ({
                             <>Shortlist is empty</>
                         }
                     </Button>
-                    <StyledDialog isOpen={dialogOpen} onDismiss={() => setDialogOpen(false)}>
+                    <StyledDialog isOpen={dialogOpen} onDismiss={() => setDialogOpen(false)} aria-label="Your shortlist">
                         <CloseButton onClick={() => setDialogOpen(false)}>
                             <img src={cross} alt="Close"/>
                         </CloseButton>
@@ -81,7 +81,7 @@ const Shortlist = ({
                                     />
                                 )
                                 :
-                                <NothingToShow>You can add services to your shortlist to save them for later in this browser.</NothingToShow>
+                                <NothingToShow>Adding services to your shortlist means you can review them later, as long as you use the same browser.</NothingToShow>
                             }
 
                         </List>

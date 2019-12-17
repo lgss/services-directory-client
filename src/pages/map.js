@@ -11,6 +11,7 @@ import DetailDialog from "../components/DetailDialog"
 import Pagination from "../components/Pagination"
 import Filters from "../components/Filters"
 import CountywideService from "../components/CountywideService"
+import fetch from "isomorphic-unfetch"
 
 const ResultsArea = styled.section`
     background-color: ${theme.grey5};
@@ -27,7 +28,8 @@ const ListArea = styled.div`
     opacity: ${props => props.reloading ? "0.4" : "1"};
     pointer-events: ${props => props.reloading ? "none" : "inherit"};
     @media screen and (min-width: 700px){
-        width: 500px;
+        width: 50%;
+        max-width: 500px;
         min-height: 0;
         overflow-y: scroll;
     }

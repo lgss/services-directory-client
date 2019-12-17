@@ -4,21 +4,31 @@ import LocationFilter from "./LocationFilter"
 import Filter from "./Filter"
 import Shortlist from "../Shortlist"
 import config from "../../_config"
+import Share from  "../Share"
 
-const Outer = styled.section`
+const Outer = styled.nav`
     padding: 15px 15px;
-`
-
-const Inner = styled.div`
-    @media screen and (min-width: 700px){
+    @media screen and (min-width: 900px){
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: space-between;
     }
 `
+
+const Left = styled.div`
+`
+
+const Right = styled.div`
+    margin-top: 15px;
+    @media screen and (min-width: 900px){
+        margin-top: 0px;
+    }
+`
+
 const Filters = () =>
     <Outer>
-        <Inner>
+        <Left>
             <LocationFilter/>
             <Filter
                 label="Interests"
@@ -40,9 +50,11 @@ const Filters = () =>
                 name="accessibility"
                 options={config.accessibilityOptions}
             />
-            {/* <ShareDialog/> */}
+        </Left>
+        <Right>
             <Shortlist/>
-        </Inner>
+            <Share/>
+        </Right>
     </Outer>
     
 export default Filters

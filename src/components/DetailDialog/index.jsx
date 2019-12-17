@@ -7,6 +7,7 @@ import cross from "./cross.svg"
 import DetailMap from "./DetailMap"
 import { prettyDays } from "../../lib/utils"
 import Checklists from "./Checklists"
+import fetch from "isomorphic-unfetch"
 
 const StyledDialog = styled(Dialog)`
   position: relative;
