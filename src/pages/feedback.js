@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import theme from "../components/_theme"
 import Layout from "../components/Layout"
-import PageHeader from "../components/PageHeader"
-import Form from "../components/Form"
+import FeedbackHeader from "../components/FeedbackHeader"
+import FeedbackForm from "../components/FeedbackForm"
 
 const Outer = styled.div`
     padding: 60px 15px;
@@ -20,11 +20,11 @@ const TwoThirdsColumn = styled.div`
 
 const IndexPage = () =>
     <Layout>
-        <PageHeader/>
+        <FeedbackHeader/>
         <Outer>
             <ContentArea>
                 <TwoThirdsColumn>
-                    <Form/>
+                    <FeedbackForm/>
                 </TwoThirdsColumn>
             </ContentArea>
         </Outer>

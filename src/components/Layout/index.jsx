@@ -10,6 +10,7 @@ import twitter from "./twitter.svg"
 import youtube from "./youtube.svg"
 
 const Outer = styled.div`
+    background-color: white;
     @media screen and (min-width: 700px){
         display: ${props => props.fullPage && "flex" };
         flex-direction: ${props => props.fullPage && "column" };

@@ -7,18 +7,17 @@ const Outer = styled.section`
     background-image: url(${hero});
     background-size: cover;
     background-position: center;
-    padding: 200px 0px 10px 0px;
+    padding: 200px 15px 10px 15px;
     margin-bottom: 130px;
     @media screen and (min-width: 600px){
-        padding: 250px 0px 10px 0px;
+        padding-top: 250px;
     }
     @media screen and (min-width: 1600px){
-        padding: 300px 0px 10px 0px;
+        padding-top: 300px;
     }
 `
 
 const Inner = styled.div`
-    padding: 0px 15px;
     max-width: ${theme.maxWidth};
     margin-left: auto;
     margin-right: auto;

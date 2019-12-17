@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
+import { Link } from "react-router-dom"
 
 const Outer = styled.section`
     background: ${theme.grey5};
@@ -27,7 +28,7 @@ const Tag = styled.strong`
     margin-right: 15px;
 `
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
     color: ${theme.blue};
     &:hover{
         text-decoration: none;
@@ -45,7 +46,7 @@ const PhaseBanner = ({
     <Outer>
         <Inner fullPage={fullPage}>
             <Tag>Beta</Tag>
-            <p>This is a new website - <StyledLink href="#">your feedback</StyledLink> will help us improve it.</p>
+            <p>This is a new website - <StyledLink to="/feedback">your feedback</StyledLink> will help us improve it.</p>
         </Inner>
     </Outer>
 

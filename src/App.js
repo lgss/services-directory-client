@@ -2,6 +2,7 @@ import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import IndexPage from "./pages/index"
 import MapPage from "./pages/map"
+import FeedbackPage from "./pages/feedback"
 import { createGlobalStyle } from "styled-components"
 import theme from "./components/_theme"
 import { GoogleContextProvider } from "./contexts/googleContext"
@@ -26,6 +27,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  body{
+    background: ${theme.grey1};
+  }
+
   a{
     color: ${theme.blue}
   }
@@ -77,6 +83,7 @@ const App = () =>
         <GlobalStyle/>
         <Route path="/" component={IndexPage} exact/>
         <Route path="/services" component={MapPage}/>
+        <Route path="/feedback" component={FeedbackPage}/>
       </Router>
     </GoogleContextProvider>
   </ShortlistContextProvider>

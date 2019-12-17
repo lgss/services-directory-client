@@ -3,6 +3,7 @@ import styled from "styled-components"
 import theme from "../_theme"
 import InterestsQuestion from "./InterestsQuestion"
 import LocationQuestion from "./LocationQuestion"
+import { Link } from "react-router-dom"
 
 const Button = styled.button`
     background: ${theme.blue};
@@ -28,7 +29,7 @@ const Button = styled.button`
     }
 `
 
-const A = styled.a`
+const StyledLink = styled(Link)`
     &:hover{
         text-decoration: none;
     }
@@ -45,7 +46,7 @@ const Form = () => {
             <InterestsQuestion/>
             <LocationQuestion/>
             <Button type="submit">See results</Button>
-            <p>Or, just <A href="/services">browse everything</A>.</p>
+            <p>Or, just <StyledLink to="/services">browse everything</StyledLink>.</p>
         </form>
     )
 }

@@ -8,6 +8,7 @@ import DetailMap from "./DetailMap"
 import { prettyDays } from "../../lib/utils"
 import Checklists from "./Checklists"
 import fetch from "isomorphic-unfetch"
+import { Link } from "react-router-dom"
 
 const StyledDialog = styled(Dialog)`
   position: relative;
@@ -250,7 +251,7 @@ const DetailDialog = ({
       />
       <Disclaimer>
         <p>We regularly check and update these community services, but can’t guarantee that they will always be accurate.</p>
-        <p>If anything here is out of date or missing, please <a href="#">let us know</a>.</p>
+        <p>If anything here is out of date or missing, please <Link to={`/feedback?serviceId=${service.assetId}`}>let us know</Link>.</p>
         <p>You may need a referral for some activities and groups. Contact the organiser if unsure.</p>
       </Disclaimer>
     </StyledDialog>
