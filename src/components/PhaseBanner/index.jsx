@@ -3,9 +3,9 @@ import styled from "styled-components"
 import theme from "../_theme"
 
 const Outer = styled.section`
-    background: ${theme.focus};
+    background: ${theme.grey5};
     color: ${theme.grey1};
-    padding: 7px 20px;
+    padding: 10px 15px;
     line-height: 1.4;
 `
 
@@ -19,8 +19,8 @@ const Inner = styled.div`
 `
 
 const Tag = styled.strong`
-    background: ${theme.grey1};
-    color: ${theme.focus};
+    background: ${theme.blue};
+    color: white;
     padding: 2px 7px;
     display: inline-block;
     text-transform: uppercase;
@@ -28,14 +28,14 @@ const Tag = styled.strong`
 `
 
 const StyledLink = styled.a`
-    color: ${theme.grey1};
+    color: ${theme.blue};
     &:hover{
         text-decoration: none;
     }
     &:focus{
-        outline: 3px solid ${theme.grey1};
-        background: ${theme.grey1};
-        color: ${theme.focus};
+        outline: 3px solid ${theme.focus};
+        background: ${theme.focus};
+        /* color: ${theme.focus}; */
     }
 `
 

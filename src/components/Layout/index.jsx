@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
-// import PhaseBanner from "../PhaseBanner"
+import PhaseBanner from "../PhaseBanner"
 
 import masthead from "./masthead.svg"
 import search from "./search.svg"
@@ -150,7 +150,6 @@ const Layout = ({
     children
 }) =>
     <Outer fullPage={fullPage}>
-        {/* <PhaseBanner fullPage={fullPage}/> */}
         <Header>
             <HeaderContainer fullPage={fullPage}>
                 <Masthead href="/">
@@ -166,6 +165,7 @@ const Layout = ({
                 </SearchForm>
             </HeaderContainer>
         </Header>
+        <PhaseBanner fullPage={fullPage}/>
         {children}
         {!fullPage &&    
             <Footer>
