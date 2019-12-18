@@ -7,6 +7,7 @@ import Card from "../Card"
 import { useHistory } from "react-router-dom"
 import { Inner, CloseButton } from "../Filters/utils"
 import cross from "../DetailDialog/cross.svg"
+import PrintShortlist from "../PrintShortlist"
 
 const Button = styled.button`
     display: inline-block;
@@ -71,6 +72,7 @@ const Shortlist = ({
                         </CloseButton>
                         <Inner>
                             <Headline>Your shortlist</Headline>
+                            <PrintShortlist/>
                         </Inner>
                         <List>
                             {(context.shortlist.length > 0) ? 
