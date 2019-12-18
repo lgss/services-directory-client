@@ -89,7 +89,7 @@ const Shortlist = ({
                                     />
                                 )
                                 :
-                                <NothingToShow>Adding services to your shortlist means you can review them later, as long as you use the same browser.</NothingToShow>
+                                <NothingToShow>Adding services to your shortlist saves them to this browser for you to review later.</NothingToShow>
                             }
 
                         </List>
