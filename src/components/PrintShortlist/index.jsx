@@ -6,6 +6,7 @@ const PrintShortlist = ({shortlist}) => {
         return {
             parentOrganisation: item.parentOrganisation,
             name: item.name,
+            description: item.description,
             category: item.category,
             frequency: item.frequency,
             venue: item.venue,
