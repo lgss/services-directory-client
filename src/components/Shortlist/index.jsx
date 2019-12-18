@@ -9,6 +9,7 @@ import { Inner, CloseButton } from "../Filters/utils"
 import cross from "../DetailDialog/cross.svg"
 import PrintShortlist from "../PrintShortlist"
 
+
 const Button = styled.button`
     display: inline-block;
     font-size: 0.95rem;
@@ -26,6 +27,7 @@ const Button = styled.button`
 const Headline = styled.h2`
     color: ${theme.darkText};
     font-size: 1.5em;
+    margin-bottom: 10px;
 `
 
 const StyledDialog = styled(Dialog)`
@@ -38,7 +40,10 @@ const List = styled.ul`
     list-style: none;
     display: block;
     background: ${theme.grey5};
-    padding: 30px;
+    padding: 20px;
+    @media screen and (min-width: 600px){
+        padding: 30px;
+    }
 `
 
 const NothingToShow = styled.p`

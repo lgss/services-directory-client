@@ -16,9 +16,6 @@ const Outer = styled.nav`
     }
 `
 
-const Left = styled.div`
-`
-
 const Right = styled.div`
     margin-top: 15px;
     @media screen and (min-width: 900px){
@@ -28,7 +25,7 @@ const Right = styled.div`
 
 const Filters = () =>
     <Outer>
-        <Left>
+        <div>
             <LocationFilter/>
             <Filter
                 label="Interests"
@@ -50,7 +47,7 @@ const Filters = () =>
                 name="accessibility"
                 options={config.accessibilityOptions}
             />
-        </Left>
+        </div>
         <Right>
             <Shortlist/>
             <Share/>

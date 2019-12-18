@@ -39,6 +39,10 @@ const StyledLink = styled(Link)`
     }
 `
 
+const Small = styled.p`
+    font-size: 0.95rem;
+`
+
 const Form = () => {
     
     return(
@@ -46,7 +50,7 @@ const Form = () => {
             <InterestsQuestion/>
             <LocationQuestion/>
             <Button type="submit">See results</Button>
-            <p>Or, just <StyledLink to="/services">browse everything</StyledLink>.</p>
+            <Small>Or, just <StyledLink to="/services">browse everything</StyledLink>.</Small>
         </form>
     )
 }
