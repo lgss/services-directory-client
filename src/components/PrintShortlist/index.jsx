@@ -16,7 +16,7 @@ const PrintShortlist = ({shortlist}) => {
             url: item.url
         }
     })
-    return <a href={`/.netlify/functions/print?data=${encodeURIComponent(JSON.stringify(simplifiedShortlist))}`}>Download printable PDF</a>
+    return <a href={`${process.env.REACT_APP_LAMBDA_HOST}/print?data=${encodeURIComponent(JSON.stringify(simplifiedShortlist))}`}>Download printable PDF</a>
 }
 
 const WrappedPrint = () =>
