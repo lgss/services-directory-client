@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
 import IndexPage from "./pages/index"
 import MapPage from "./pages/map"
 import FeedbackPage from "./pages/feedback"
@@ -77,9 +77,15 @@ const App = () =>
     <GoogleContextProvider>
       <Router>
         <GlobalStyle/>
-        <Route path="/" component={IndexPage} exact/>
-        <Route path="/services" component={MapPage}/>
-        <Route path="/feedback" component={FeedbackPage}/>
+        <Switch>
+          <Route path="/" component={IndexPage} exact/>
+          <Route path="/services" component={MapPage}/>
+          <Route path="/feedback" component={FeedbackPage}/>
+          <Route path="*" component={() => { 
+              window.location.href = "https://www.buckscc.gov.uk/404" 
+              return null;
+          }}/>
+        </Switch>
       </Router>
     </GoogleContextProvider>
   </ShortlistContextProvider>
