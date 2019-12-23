@@ -28,10 +28,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  body{
-    background: ${theme.grey1};
-  }
-
   a{
     color: ${theme.blue}
   }

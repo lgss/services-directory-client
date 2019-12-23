@@ -54,7 +54,6 @@ const Description = styled.p`
 
 const Footer = styled.footer`
     line-height: 1.7;
-    margin-right: 35px;
 `
 
 const Tag = styled.strong`

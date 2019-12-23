@@ -20,6 +20,7 @@ const Outer = styled.div`
 `
 
 const Button = styled.button`
+    margin-left: auto;
     border-radius: 100%;
     padding: 10px;
     height: 40px;
