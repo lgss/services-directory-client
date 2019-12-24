@@ -81,10 +81,10 @@ const App = () =>
           <Route path="/" component={IndexPage} exact/>
           <Route path="/services" component={MapPage}/>
           <Route path="/feedback" component={FeedbackPage}/>
-          <Route path="*" component={() => { 
+          {/* <Route path="*" component={() => { 
               window.location.href = "https://www.buckscc.gov.uk/404" 
               return null;
-          }}/>
+          }}/> */}
         </Switch>
       </Router>
     </GoogleContextProvider>
