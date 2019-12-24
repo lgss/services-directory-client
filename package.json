@@ -41,10 +41,11 @@
     "react-snap": "^1.23.0"
   },
   "reactSnap": {
-    "crawl": false,
+    "skipThirdPartyRequests": true,
     "include": [
       "/",
-      "/feedback"
+      "/feedback",
+      "/services"
     ]
   }
 }
