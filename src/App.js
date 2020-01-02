@@ -1,5 +1,5 @@
-import React from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Route, Switch, useHistory } from "react-router-dom"
 import IndexPage from "./pages/index"
 import MapPage from "./pages/map"
 import FeedbackPage from "./pages/feedback"
@@ -7,6 +7,7 @@ import { createGlobalStyle } from "styled-components"
 import theme from "./components/_theme"
 import { GoogleContextProvider } from "./contexts/googleContext"
 import { ShortlistContextProvider } from "./contexts/shortlistContext"
+import { initGA, logPageView } from "./lib/analytics"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -61,18 +62,28 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-const App = () =>
-  <ShortlistContextProvider>
-    <GoogleContextProvider>
-      <Router>
-        <GlobalStyle/>
-        <Switch>
-          <Route path="/" component={IndexPage} exact/>
-          <Route path="/services" component={MapPage}/>
-          <Route path="/feedback" component={FeedbackPage}/>
-        </Switch>
-      </Router>
-    </GoogleContextProvider>
-  </ShortlistContextProvider>
+const App = () => {
+
+  initGA()
+
+  const history = useHistory()
+
+  useEffect(() => {
+    logPageView(history)
+  }, [history])
+  
+  return(
+    <ShortlistContextProvider>
+      <GoogleContextProvider>
+          <GlobalStyle/>
+          <Switch>
+            <Route path="/" component={IndexPage} exact/>
+            <Route path="/services" component={MapPage}/>
+            <Route path="/feedback" component={FeedbackPage}/>
+          </Switch>
+      </GoogleContextProvider>
+    </ShortlistContextProvider>
+  )
+}
 
 export default App
