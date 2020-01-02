@@ -73,9 +73,14 @@ const Meta = styled.span`
 
 const Card = ({
     search,
-    service
+    service,
+    onMouseEnter,
+    onMouseLeave
 }) =>
-    <Outer>
+    <Outer
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+    >
         <StyledLink to={{
             pathname: `/services/${service.assetId}`,
             search: search
