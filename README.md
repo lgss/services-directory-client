@@ -10,7 +10,9 @@ It's a standard client-rendered React app that consumes data from an API.
 
 ## Prerequisites
 
-`node` and `npm`
+- `node` and `npm`
+- A running companion API server
+- Client-side credentials for Google's geocoding and mapping APIs
 
 ## Running it locally
 
