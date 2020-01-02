@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import IndexPage from "./pages/index"
 import MapPage from "./pages/map"
 import FeedbackPage from "./pages/feedback"
@@ -9,17 +9,6 @@ import { GoogleContextProvider } from "./contexts/googleContext"
 import { ShortlistContextProvider } from "./contexts/shortlistContext"
 
 const GlobalStyle = createGlobalStyle`
-
-  /* @font-face {
-    font-family: Helvetica Neue;
-    font-weight: normal;
-    src: url(helveticaneue2-medium.woff);
-  }
-  @font-face {
-    font-family: Helvetica Neue;
-    font-weight: bold;
-    src: url(helveticaneue-bold.woff);
-  } */
 
   *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif, sans-serif;
@@ -81,10 +70,6 @@ const App = () =>
           <Route path="/" component={IndexPage} exact/>
           <Route path="/services" component={MapPage}/>
           <Route path="/feedback" component={FeedbackPage}/>
-          {/* <Route path="*" component={() => { 
-              window.location.href = "https://www.buckscc.gov.uk/404" 
-              return null;
-          }}/> */}
         </Switch>
       </Router>
     </GoogleContextProvider>
