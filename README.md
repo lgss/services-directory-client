@@ -4,7 +4,7 @@
 
 **[On the web here](https://bucks-service-directory.netlify.com/)**
 
-A community service directory for Buckinghamshire.
+🏛 A community service directory for Buckinghamshire.
 
 It's a standard client-rendered React app that consumes data from an API.
 
@@ -19,7 +19,7 @@ It's a standard client-rendered React app that consumes data from an API.
 
 ## Running it on the web
 
-It's suitable for deployment to free static hosts, especially Netlify.
+It's suitable for deployment to free static hosts, especially Netlify. It has a `netlify.toml` file, so Netlify should automatically detect the deployment command and build directory.
 
 ## Config
 
