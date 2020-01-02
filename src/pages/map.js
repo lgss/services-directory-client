@@ -13,6 +13,7 @@ import Filters from "../components/Filters"
 import CountywideService from "../components/CountywideService"
 import fetch from "isomorphic-unfetch"
 import { Helmet } from "react-helmet"
+import Loader from "../components/Loader"
 
 const ResultsArea = styled.section`
     background-color: ${theme.grey5};
@@ -137,7 +138,16 @@ const MapPage = ({
                     reloading={reloading} 
                 >
                     {services.length < 1 ?
-                        <>{totalPages === 0 ? <P>No results to show. Try widening your search.</P> : <P>Loading results...</P>}</>
+                        <>
+                            {totalPages === 0 ? 
+                                <P>No results to show. Try widening your search.</P> 
+                                : 
+                                <>
+                                    <Loader/>
+                                    <P>Loading results...</P>
+                                </>
+                            }
+                        </>
                         :
                         <>
                             <CardList>
