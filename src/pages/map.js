@@ -36,7 +36,7 @@ const ListArea = styled.div`
         overflow-y: scroll;
     }
     @media screen and (min-width: 1600px){
-        width: 900px;
+        max-width: 900px;
     }
 `
 
