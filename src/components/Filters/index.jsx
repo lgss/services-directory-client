@@ -23,7 +23,9 @@ const Right = styled.div`
     }
 `
 
-const Filters = () =>
+const Filters = ({
+    setInitialBounds
+}) =>
     <Outer>
         <div>
             <LocationFilter/>
@@ -31,21 +33,25 @@ const Filters = () =>
                 label="Interests"
                 name="category"
                 options={config.interestsOptions}
+                setInitialBounds={setInitialBounds}
             />
             <Filter
                 label="When you're free"
                 name="days"
                 options={config.daysOptions}
+                setInitialBounds={setInitialBounds}
             />
             <Filter
                 label="Ages"
                 name="age"
                 options={config.ageOptions}
+                setInitialBounds={setInitialBounds}
             />
             <Filter
                 label="Accessibility"
                 name="accessibility"
                 options={config.accessibilityOptions}
+                setInitialBounds={setInitialBounds}
             />
         </div>
         <Right>

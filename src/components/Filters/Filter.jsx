@@ -18,7 +18,8 @@ import {
 const Filter = ({
     label,
     name,
-    options
+    options,
+    setInitialBounds
 }) => {
 
     const [dialogOpen, toggleDialog] = useState(false)
@@ -62,6 +63,7 @@ const Filter = ({
     const handleSubmit = (e) => {
         e.preventDefault()
         query[name] = selection
+        setInitialBounds(false)
         history.push(`/services?${queryString.stringify(query)}`)
         toggleDialog(false)
     }

@@ -74,6 +74,8 @@ const MapPage = ({
 
     const [reloading, setReloading] = useState(false)
 
+    const [initialBoundsAreSet, setInitialBounds] = useState(false)
+
     const [currentPage, setCurrentPage] = useState(null)
     const [totalPages, setTotalPages] = useState(null)
 
@@ -119,11 +121,13 @@ const MapPage = ({
     const handleNextPage = () => {
         query.page = parseInt(currentPage) + 1
         history.push(`/services?${queryString.stringify(query)}`)
+        setInitialBounds(false)
     }
 
     const handlePrevPage = () => {
         query.page = parseInt(currentPage) - 1
         history.push(`/services?${queryString.stringify(query)}`)
+        setInitialBounds(false)
     }
 
     return(
@@ -131,7 +135,7 @@ const MapPage = ({
             <Helmet>
                 <title>Results | Buckinghamshire Council</title>
             </Helmet>
-            <Filters/>
+            <Filters setInitialBounds={setInitialBounds}/>
             <ResultsArea>
                 <ListArea 
                     ref={listInstance} 
@@ -184,6 +188,8 @@ const MapPage = ({
                         services={services}
                         hoveredService={hoveredService}
                         handleMapDrag={handleMapDrag}
+                        initialBoundsAreSet={initialBoundsAreSet}
+                        setInitialBounds={setInitialBounds}
                     />
                 </MapArea>
             </ResultsArea>

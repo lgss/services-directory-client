@@ -29,11 +29,12 @@ const Map = ({
     hoveredService,
     handleMapDrag,
     search,
-    isLoaded
+    isLoaded,
+    initialBoundsAreSet,
+    setInitialBounds
 }) => {
 
     const mapInstance = useRef(null)
-    const [initialBoundsAreSet, setInitialBounds] = useState(false)
     const [searchAsIMoveTheMap, setSearchAsIMoveTheMap] = useState(true)
     const history = useHistory()
 
