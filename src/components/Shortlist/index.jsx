@@ -77,7 +77,7 @@ const Shortlist = ({
                         </CloseButton>
                         <Inner>
                             <Headline>Your shortlist</Headline>
-                            <PrintShortlist/>
+                            {(context.shortlist.length > 0) && <PrintShortlist/>}
                         </Inner>
                         <List>
                             {(context.shortlist.length > 0) ? 
