@@ -91,7 +91,7 @@ const Shortlist = ({
                                 :
                                 <>
                                     <NothingToShow>Adding services to your shortlist saves them to this browser for you to review later or print.</NothingToShow>
-                                    <NothingToShow>Look for the <strong>heart</strong> icon.</NothingToShow>
+                                    <NothingToShow>Look for the <strong>heart icon</strong>.</NothingToShow>
                                 </>
                             }
 
