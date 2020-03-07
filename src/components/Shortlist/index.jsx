@@ -47,7 +47,7 @@ const List = styled.ul`
 `
 
 const NothingToShow = styled.p`
-    margin: 30px 50px;
+    margin: 15px 50px;
     text-align: center;
     color: ${theme.grey2};
 
@@ -89,7 +89,10 @@ const Shortlist = ({
                                     />
                                 )
                                 :
-                                <NothingToShow>Adding services to your shortlist saves them to this browser for you to review later or print.</NothingToShow>
+                                <>
+                                    <NothingToShow>Adding services to your shortlist saves them to this browser for you to review later or print.</NothingToShow>
+                                    <NothingToShow>Look for the <strong>heart</strong> icon.</NothingToShow>
+                                </>
                             }
 
                         </List>
