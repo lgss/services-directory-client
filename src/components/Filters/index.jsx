@@ -7,7 +7,7 @@ import config from "../../_config"
 import Share from  "../Share"
 
 const Outer = styled.nav`
-    padding: 15px 15px;
+    padding: 10px 15px;
     @media screen and (min-width: 900px){
         display: flex;
         flex-direction: row;
