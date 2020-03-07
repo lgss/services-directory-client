@@ -150,10 +150,10 @@ const MapPage = ({
                         </>
                         :
                         <>
+                            {(countywideServices.length > 0 && parseInt(currentPage) === 1) &&
+                                <CountywideService service={countywideServices[0]}/>
+                            }
                             <CardList>
-                                {(countywideServices.length > 0 && parseInt(currentPage) === 1) &&
-                                    <CountywideService service={countywideServices[0]}/>
-                                }
                                 {services.map(service =>
                                     <Card 
                                         service={service}
