@@ -23,6 +23,10 @@ module.exports = {
             value: "support",
             label: "Support"
         },
+        {
+            value: "coronavirus",
+            label: "Self-isolating because of coronavirus"
+        }
     ],
     // supportOptions: [
     //     {
