@@ -23,7 +23,7 @@ const Hint = styled.p`
 const InterestsQuestion = () =>
     <Fieldset>
         <legend>
-            <Question>What are you interested in?</Question>
+            <Question>What do you need help with?</Question>
             <Hint>Choose as many as you like</Hint>
         </legend>
         <Checkboxes>

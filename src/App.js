@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  p{
+    line-height: 1.5;
+  }
+
   *::-moz-focus-inner {border:0;}
 
   a{

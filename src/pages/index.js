@@ -4,6 +4,7 @@ import theme from "../components/_theme"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import Form from "../components/Form"
+import AlertBox from "../components/AlertBox"
 
 const Outer = styled.div`
     padding: 60px 15px;
@@ -24,6 +25,9 @@ const IndexPage = () =>
         <Outer>
             <ContentArea>
                 <TwoThirdsColumn>
+                    <AlertBox>
+                        <p>This service is being updated to help vulnerable people who are staying at home due to <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">coronavirus</a>.</p>
+                    </AlertBox>
                     <Form/>
                 </TwoThirdsColumn>
             </ContentArea>
