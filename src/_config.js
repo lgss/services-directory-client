@@ -4,6 +4,10 @@ module.exports = {
     // Options for forms and filters
     interestsOptions: [
         {
+            value: "coronavirus",
+            label: "Staying at home due to coronavirus"
+        },
+        {
             value: "active",
             label: "Staying active"
         },
@@ -21,11 +25,7 @@ module.exports = {
         },
         {
             value: "support",
-            label: "Support"
-        },
-        {
-            value: "coronavirus",
-            label: "Self-isolating because of coronavirus"
+            label: "Support with daily tasks"
         }
     ],
     // supportOptions: [
