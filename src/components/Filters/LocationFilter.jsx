@@ -55,6 +55,7 @@ const LocationFilter = () => {
         query.location = selection
         query.lat = null
         query.lng = null
+        query.page = 1
         window.location = `/services?${queryString.stringify(query)}`
     }
     
