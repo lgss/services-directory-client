@@ -30,7 +30,7 @@ const PrintShortlist = ({shortlist}) => {
             url: item.url
         }
     })
-    return <A href={`${process.env.REACT_APP_API_HOST}/api/print?data=${encodeURIComponent(JSON.stringify(simplifiedShortlist))}`}>Download printable PDF</A>
+    return <A target="blank" href={`${process.env.REACT_APP_API_HOST}/api/print?data=${encodeURIComponent(JSON.stringify(simplifiedShortlist))}`}>Download printable PDF</A>
 }
 
 const WrappedPrint = () =>

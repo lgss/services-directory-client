@@ -45,6 +45,9 @@ const Masthead = styled.a`
     &:focus{
         outline: 3px solid ${theme.focus};
     }
+    img{
+        max-height: 45px;
+    }
 `
 
 const SearchForm = styled.form`

@@ -16,7 +16,8 @@ const Inner = styled.div`
     margin-right: auto;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    font-size: 0.9rem;
 `
 
 const Tag = styled.strong`

@@ -201,7 +201,7 @@ const DetailDialog = ({
       aria-label="Service details"
     >
       <Helmet>
-        {(service.name || service.parentOrganisation) &&         <title>{`${service.name || service.parentOrganisation} | Buckinghamshire Council`}</title>}
+        {(service.name || service.parentOrganisation) && <title>{`${service.name || service.parentOrganisation} | Buckinghamshire Council`}</title>}
       </Helmet>
       <CloseButton onClick={close}><img src={cross} alt="Close"/></CloseButton>
       <Header>
@@ -224,7 +224,7 @@ const DetailDialog = ({
       </MapHolder>
 
       <SummaryPanel>
-        {service.url && <Button href={service.url}>Visit website</Button>}
+        {service.url && <Button target="blank" href={service.url}>Visit website</Button>}
         <p>{service.description}</p>
         <TwoColumns>
           {(service.frequency || (service.days && service.days.length > 0)) &&

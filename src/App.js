@@ -18,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  *::-moz-focus-inner {border:0;}
+
   a{
     color: ${theme.blue}
   }

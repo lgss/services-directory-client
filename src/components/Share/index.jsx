@@ -120,7 +120,7 @@ const Share = () => {
                     :
                     <form method="post" action={`/share/${medium}`} onSubmit={handleSubmit} aria-live="polite">
                         <Inner>
-                            <Headline>Share these results</Headline>
+                            <Headline>Share this page</Headline>
                             {(response === 500 || response === "fail") && <Alert>There was a problem sharing. If this continues, please try again later</Alert>}
                             {(response === 404) && <Alert>We couldn't share to that {(medium === "sms")? "phone number" : "email"}. Please check it and try again.</Alert>}
 

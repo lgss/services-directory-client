@@ -7,7 +7,7 @@ import config from "../../_config"
 import Share from  "../Share"
 
 const Outer = styled.nav`
-    padding: 15px 15px;
+    padding: 10px 15px;
     @media screen and (min-width: 900px){
         display: flex;
         flex-direction: row;
@@ -23,7 +23,9 @@ const Right = styled.div`
     }
 `
 
-const Filters = () =>
+const Filters = ({
+    setInitialBounds
+}) =>
     <Outer>
         <div>
             <LocationFilter/>
@@ -31,21 +33,25 @@ const Filters = () =>
                 label="Interests"
                 name="category"
                 options={config.interestsOptions}
+                setInitialBounds={setInitialBounds}
             />
             <Filter
                 label="When you're free"
                 name="days"
                 options={config.daysOptions}
+                setInitialBounds={setInitialBounds}
             />
             <Filter
                 label="Ages"
                 name="age"
                 options={config.ageOptions}
+                setInitialBounds={setInitialBounds}
             />
             <Filter
                 label="Accessibility"
                 name="accessibility"
                 options={config.accessibilityOptions}
+                setInitialBounds={setInitialBounds}
             />
         </div>
         <Right>

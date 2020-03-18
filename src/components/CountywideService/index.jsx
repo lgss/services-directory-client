@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
 
-const Outer = styled.li`
+const Outer = styled.div`
     margin-bottom: 20px;
     padding: 20px 25px;
     background-color: ${theme.paleOrange};
