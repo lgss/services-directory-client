@@ -7,6 +7,13 @@ const Outer = styled.div`
     padding: 25px;
     border: 3px solid ${theme.focus};
 
+    p{
+        margin-bottom: 20px;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+    }
+
     a{
         color: ${theme.blue};
         &:hover{
