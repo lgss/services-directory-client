@@ -16,7 +16,7 @@ const ContentArea = styled.div`
 `
 
 const TwoThirdsColumn = styled.div`
-    max-width: calc(${theme.maxWidth} / 2 );
+    max-width: calc(${theme.maxWidth} / 3 * 2 );
 `
 
 const IndexPage = () =>

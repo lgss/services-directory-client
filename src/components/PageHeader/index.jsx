@@ -27,7 +27,7 @@ const Panel = styled.div`
     background: ${theme.blue};
     color: white;
     padding: 25px;
-    max-width: calc(${theme.maxWidth} / 2);
+    max-width: calc(${theme.maxWidth} / 3 * 2);
     margin-bottom: -130px;
     @media screen and (min-width: 600px){
         padding: 35px;

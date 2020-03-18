@@ -15,5 +15,5 @@ export default {
 
     paleOrange: "#F5F1E0",
     
-    maxWidth: "1280px"
+    maxWidth: "930px"
 }
