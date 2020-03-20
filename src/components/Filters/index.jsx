@@ -30,7 +30,7 @@ const Filters = ({
         <div>
             <LocationFilter/>
             <Filter
-                label="Interests"
+                label="Kinds of help"
                 name="category"
                 options={config.interestsOptions}
                 setInitialBounds={setInitialBounds}
