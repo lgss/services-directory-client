@@ -1,19 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 import theme from "../_theme"
-import hero from "./hero.jpg"
 
 const Outer = styled.section`
-    background-image: url(${hero});
-    background-size: cover;
     background-position: center;
-    padding: 200px 15px 10px 15px;
-    margin-bottom: 130px;
+    margin-bottom: 100px;
     @media screen and (min-width: 600px){
-        padding-top: 250px;
+        padding-top: 50px;
     }
     @media screen and (min-width: 1600px){
-        padding-top: 300px;
+        padding-top: 100px;
     }
 `
 
@@ -24,7 +20,7 @@ const Inner = styled.div`
 `
 
 const Panel = styled.div`
-    background: ${theme.blue};
+    background: ${theme.ccc_blue};
     color: white;
     padding: 25px;
     max-width: calc(${theme.maxWidth} / 3 * 2);
@@ -60,7 +56,7 @@ const A = styled.a`
         text-decoration: none;
     }
     &:focus{
-        color: ${theme.blue};
+        color: ${theme.ccc_blue};
         background: ${theme.focus};
         outline: 3px solid ${theme.focus};
     }
@@ -86,7 +82,7 @@ const PageHeader = () =>
         <Inner>
             <Panel>
                 <Breadcrumbs>
-                    <Breadcrumb><A href="https://www.buckscc.gov.uk">Home</A></Breadcrumb>
+                    <Breadcrumb><A href="https://www.cambridgeshire.gov.uk">Home</A></Breadcrumb>
                     <Breadcrumb>Directory</Breadcrumb>
                 </Breadcrumbs>
                 <PageTitle>Find activites, groups and services near you</PageTitle>

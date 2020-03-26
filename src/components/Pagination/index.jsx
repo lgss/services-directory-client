@@ -8,8 +8,8 @@ const Outer = styled.div`
 
 const NextButton = styled.button`
     background: none;
-    color: ${theme.blue};
-    border: 2px solid ${theme.blue};
+    color: ${theme.ccc_blue};
+    border: 2px solid ${theme.ccc_blue};
     padding: 20px 65px;
     font-size: 1.1rem;
     font-weight: bold;
@@ -34,7 +34,7 @@ const NextButton = styled.button`
 const PrevButton = styled.button`
     background: none;
     border: none;
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
     text-decoration: underline;
     margin: 10px auto;
     text-align: center;
@@ -52,7 +52,7 @@ const PrevButton = styled.button`
 `
 
 const P = styled.p`
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
     margin: 30px 0px 20px 0px;
     text-align: center;
 `

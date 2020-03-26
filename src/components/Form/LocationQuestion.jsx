@@ -16,13 +16,13 @@ const Label = styled.label`
 `
 
 const Hint = styled.p`
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
 `
 
 const LocationQuestion = ()=>
     <Outer>
         <Label htmlFor="location">Where would you like to search?</Label>
-        <Hint>Enter a Buckinghamshire town or postcode</Hint>
+        <Hint>Enter a Cambridgeshire town or postcode</Hint>
         <AutocompletePlacesInput/>
     </Outer>
 

@@ -5,9 +5,6 @@ import PhaseBanner from "../PhaseBanner"
 
 import masthead from "./masthead.svg"
 import search from "./search.svg"
-import facebook from "./facebook.svg"
-import twitter from "./twitter.svg"
-import youtube from "./youtube.svg"
 
 const Outer = styled.div`
     background-color: white;
@@ -20,7 +17,7 @@ const Outer = styled.div`
 `
 
 const Header = styled.header`
-    background: ${theme.blue};
+    background: ${theme.ccc_blue};
     color: white;
     padding: 10px 15px;
 `
@@ -80,7 +77,7 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-    background: ${theme.grey2};
+    background: ${theme.ccc_brown};
     border: none;
     padding: 10px 25px;
     cursor: pointer;
@@ -90,7 +87,7 @@ const Button = styled.button`
 `
 
 const Footer = styled.footer`
-    background: ${theme.grey1};
+    background: ${theme.ccc_blue};
     color: white;
     padding: 30px 10px;
     @media screen and (min-width: 600px){
@@ -133,19 +130,19 @@ const FooterLink = styled.a`
     }
 `
 
-const SocialLink = styled.a`
-    margin-right: 10px;
-    &:focus{
-        outline: 3px solid ${theme.focus};
-    }
-    @media screen and (min-width: 600px){
-        margin-right: 20px;
-    }
-`
+// const SocialLink = styled.a`
+//     margin-right: 10px;
+//     &:focus{
+//         outline: 3px solid ${theme.focus};
+//     }
+//     @media screen and (min-width: 600px){
+//         margin-right: 20px;
+//     }
+// `
 
-const SocialIcon = styled.img`
-    width: 25px;
-`
+// const SocialIcon = styled.img`
+//     width: 25px;
+// `
 
 const CopyrightNotice = styled.p``
 
@@ -156,15 +153,15 @@ const Layout = ({
     <Outer fullPage={fullPage}>
         <Header>
             <HeaderContainer fullPage={fullPage}>
-                <Masthead href="https://buckinghamshire.gov.uk">
-                    <img src={masthead} alt="Buckinghamshire Council"/>
+                <Masthead href="https://cambridgeshire.gov.uk">
+                    <img src={masthead} alt="Cambridgeshire County Council"/>
                 </Masthead>
                 <SearchForm
                     method="get"
-                    action="https://www.buckscc.gov.uk/search"
+                    action="https://www.cambridgeshire.gov.uk/search"
                 >
-                    <HiddenLabel htmlFor="q">Search query</HiddenLabel>
-                    <Input name="q" id="q" required placeholder="Search our websites"/>
+                    <HiddenLabel htmlFor="term">Search query</HiddenLabel>
+                    <Input name="term" id="term" required placeholder="Search our websites"/>
                     <Button type="submit"><img src={search} alt="Search"/></Button>
                 </SearchForm>
             </HeaderContainer>
@@ -176,23 +173,12 @@ const Layout = ({
                 <Container>
                     <FooterNav>
                         <FooterLinks>
-                            <FooterLink href="https://www.buckscc.gov.uk/services/council-and-democracy/cookies/">Cookies</FooterLink>
-                            <FooterLink href="https://www.buckscc.gov.uk/services/council-and-democracy/privacy-policy/">Privacy and data</FooterLink>
-                            <FooterLink href="https://www.buckscc.gov.uk/services/contact-and-complaints/contact-us/">Contact us</FooterLink>
+                            <FooterLink href="https://www.cambridgeshire.gov.uk/council/cookies-on-our-website">Cookies</FooterLink>
+                            <FooterLink href="https://www.cambridgeshire.gov.uk/council/data-protection-and-foi/information-and-data-sharing/privacy-statement">Privacy and data</FooterLink>
+                            <FooterLink href="https://www.cambridgeshire.gov.uk/council/contact-us">Contact us</FooterLink>
                         </FooterLinks>
-                        <div>
-                            <SocialLink href="https://www.facebook.com/BuckinghamshireCountyCouncil/">
-                                <SocialIcon src={facebook} alt="Facebook"/>
-                            </SocialLink>
-                            <SocialLink href="http://twitter.com/buckscc">
-                                <SocialIcon src={twitter} alt="Twitter"/>
-                            </SocialLink>
-                            <SocialLink href="http://www.youtube.com/buckinghamshirecc">
-                                <SocialIcon src={youtube} alt="YouTube"/>
-                            </SocialLink>
-                        </div>
                     </FooterNav>
-                    <CopyrightNotice>© 2019 Buckinghamshire Council</CopyrightNotice>
+                    <CopyrightNotice>© {new Date().getFullYear()} Cambridgeshire Council</CopyrightNotice>
                 </Container>
             </Footer>
         }

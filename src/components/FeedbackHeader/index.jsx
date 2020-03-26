@@ -41,7 +41,7 @@ const A = styled.a`
         text-decoration: none;
     }
     &:focus{
-        color: ${theme.blue};
+        color: ${theme.ccc_blue};
         background: ${theme.focus};
         outline: 3px solid ${theme.focus};
     }
@@ -52,7 +52,7 @@ const StyledLink = styled(Link)`
         text-decoration: none;
     }
     &:focus{
-        color: ${theme.blue};
+        color: ${theme.ccc_blue};
         background: ${theme.focus};
         outline: 3px solid ${theme.focus};
     }
@@ -69,7 +69,7 @@ const PageHeader = () =>
     <Outer>
         <Inner>
                 <Breadcrumbs>
-                    <Breadcrumb><A href="https://www.buckscc.gov.uk">Home</A></Breadcrumb>
+                    <Breadcrumb><A href="https://www.cambridgeshire.gov.uk">Home</A></Breadcrumb>
                     <Breadcrumb><StyledLink to="/">Directory</StyledLink></Breadcrumb>
                     <Breadcrumb>Give feedback</Breadcrumb>
                 </Breadcrumbs>

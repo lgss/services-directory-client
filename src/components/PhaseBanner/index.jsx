@@ -21,7 +21,7 @@ const Inner = styled.div`
 `
 
 const Tag = styled.strong`
-    background: ${theme.blue};
+    background: ${theme.ccc_blue};
     color: white;
     padding: 2px 7px;
     display: inline-block;
@@ -30,7 +30,7 @@ const Tag = styled.strong`
 `
 
 const StyledLink = styled(Link)`
-    color: ${theme.blue};
+    color: ${theme.ccc_blue};
     &:hover{
         text-decoration: none;
     }

@@ -15,7 +15,7 @@ const Outer = styled.div`
     }
 
     a{
-        color: ${theme.blue};
+        color: ${theme.ccc_blue};
         &:hover{
             text-decoration: none;
         }

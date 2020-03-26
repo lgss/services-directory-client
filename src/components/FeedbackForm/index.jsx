@@ -41,7 +41,7 @@ const Message = styled.p`
 `
 
 const Button = styled.button`
-    background: ${theme.blue};
+    background: ${theme.ccc_blue};
     color: white;
     border: none;
     padding: 20px 65px;

@@ -28,7 +28,7 @@ const Tag = styled.strong`
     display: inline-block;
     font-size: 0.95rem;
     color: white;
-    background: ${theme.blue};
+    background: ${theme.ccc_blue};
     padding: 0px 5px;
     text-transform: capitalize;
     margin-right: 15px;

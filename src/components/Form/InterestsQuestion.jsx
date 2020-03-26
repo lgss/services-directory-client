@@ -17,7 +17,7 @@ const Question = styled.p`
 `
 
 const Hint = styled.p`
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
 `
 
 const InterestsQuestion = () =>

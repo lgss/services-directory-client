@@ -6,7 +6,7 @@ import marker from "../Map/activeMarker.svg"
 import { GoogleContextConsumer } from "../../contexts/googleContext"
 
 const P = styled.p`
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
     margin: 50px 0px 20px 0px;
     text-align: center;
     opacity: 0.4;

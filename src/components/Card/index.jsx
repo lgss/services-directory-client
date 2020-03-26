@@ -47,7 +47,7 @@ const Headline = styled.h3`
 `
 
 const Description = styled.p`
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
     margin-bottom: 15px;
     line-height: 1.4;
 `
@@ -60,14 +60,14 @@ const Tag = styled.strong`
     display: inline-block;
     font-size: 0.9rem;
     color: white;
-    background: ${theme.blue};
+    background: ${theme.ccc_blue};
     padding: 0px 5px;
     text-transform: capitalize;
     margin-right: 15px;
 `
 
 const Meta = styled.span`
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
     font-size: 0.9rem;
 `
 

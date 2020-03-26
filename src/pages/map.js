@@ -133,7 +133,7 @@ const MapPage = ({
     return(
         <Layout fullPage>
             <Helmet>
-                <title>Results | Buckinghamshire Council</title>
+                <title>Results | Cambridgeshire Council</title>
             </Helmet>
             <Filters setInitialBounds={setInitialBounds}/>
             <ResultsArea>

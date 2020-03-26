@@ -49,7 +49,7 @@ const List = styled.ul`
 const NothingToShow = styled.p`
     margin: 15px 50px;
     text-align: center;
-    color: ${theme.grey2};
+    color: ${theme.ccc_brown};
 
 `
 

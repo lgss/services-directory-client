@@ -80,7 +80,7 @@ const LocationFilter = () => {
                 <form onSubmit={handleSubmit}>
                     <Inner>
                         <Headline><legend>Change location</legend></Headline>
-                        <Hint>Enter a Buckinghamshire town or postcode.</Hint>
+                        <Hint>Enter a Cambridgeshire town or postcode.</Hint>
                         <AutocompletePlacesInput value={selection} onChange={handleChange}/>
                     </Inner>
                     <Footer>
