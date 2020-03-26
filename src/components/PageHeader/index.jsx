@@ -85,8 +85,8 @@ const PageHeader = () =>
                     <Breadcrumb><A href="https://www.cambridgeshire.gov.uk">Home</A></Breadcrumb>
                     <Breadcrumb>Directory</Breadcrumb>
                 </Breadcrumbs>
-                <PageTitle>Find activites, groups and services near you</PageTitle>
-                <Lede>Answer a few questions to find support in your area, lots of it free.</Lede>
+                <PageTitle>Get help if you are staying at home because of coronavirus</PageTitle>
+                <Lede>Use this service to find volunteer groups and services in your local area who can help you cope.</Lede>
             </Panel>
         </Inner>
     </Outer>
